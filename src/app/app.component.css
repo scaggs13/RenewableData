@@ -1,0 +1,51 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #777;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+li a.selected {
+  background-color: #660022;
+  border-color: #111111;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-width: thick;
+  border-bottom-style: solid;
+  border-left-width: medium;
+  border-left-style: solid;
+  border-right-width: medium;
+  border-right-style: solid;
+
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+div.title-bar {
+  background-color: #602;
+  color: white;
+  font-size: 40px;
+  font-family: cursive;
+  text-align: center;
+  position: static;
+  padding: 40px;
+}
