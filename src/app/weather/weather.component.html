@@ -1,1 +1,17 @@
-<p>weather works!</p>
+<div>
+  <button (click)="loadData()">Load data</button>
+  <! button (click)="getRealTime()"Real time/button >
+  {{ wData | json }}
+
+</div>
+<!div data[0]}}/div>
+<!ul>
+ <! <!li *ngFor="let message of messages" message | json}}li>
+<!/ul>
+Time Stamp: <a> {{epochToJsDate(wData["timestamp"]) }}</a> <br>
+<div class="dataContainer">
+<ul class="info">
+  <li class="weatherData" *ngFor="let nVar of variables"> {{nVar.name}}:
+    <a class="data">{{wData[nVar.value]*(nVar.convM || 1)+(nVar.convA || 0)}} {{nVar.units}}</a></li>
+</ul>
+</div>

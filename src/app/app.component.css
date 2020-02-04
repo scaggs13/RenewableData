@@ -3,13 +3,17 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #777;
+  background-color: #202020;
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: medium;
+  font-family: Arial;
 }
 
 li a.selected {
-  background-color: #660022;
+  background-color: #404040;
   border-color: #111111;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -41,11 +45,32 @@ li a:hover {
 }
 
 div.title-bar {
-  background-color: #602;
+  background-color: #404040;
   color: white;
-  font-size: 40px;
   font-family: cursive;
   text-align: center;
   position: static;
-  padding: 40px;
+  height: auto;
+  margin: 0;
+}
+
+div.title-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  opacity: 0.2;
+}
+
+h1 {
+  margin: 0;
 }

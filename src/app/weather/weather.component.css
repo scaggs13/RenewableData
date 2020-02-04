@@ -1,0 +1,48 @@
+.info {
+  color: #202020;
+  font-size: 14px;
+  padding: 0 5vw 0 5vw;
+}
+
+a.data {
+  font-size: 20px;
+  font-weight: bold;
+  float: right;
+}
+
+li {
+  margin: 2em 0 2em 0;
+  list-style-type: none;
+  line-height: 2em;
+  padding: 0;
+}
+
+.weatherData {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 2em;
+  border-radius: 4px;
+  width: 30vw;
+}
+
+.dataContainer {
+  width: 40vw;
+  height: 60vh;
+  overflow: scroll;
+}
+
+.dataContainer::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .weatherData {
+    width: 100%;
+  }
+  .dataContainer {
+    width: 100%;
+  }
+}
