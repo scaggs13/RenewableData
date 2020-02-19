@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
-import {webSocket, WebSocketSubject} from 'rxjs/internal-compatibility';
-import {delay, filter, map, retryWhen, switchMap} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+
+import { Socket } from 'ngx-socket-io';
+// import {webSocket, WebSocketSubject} from 'rxjs/internal-compatibility';
+// import {delay, filter, map, retryWhen, switchMap} from 'rxjs/operators';
+// import {Observable, of} from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
-  url = `wss://ws.weatherflow.com/swd/data?api_key=20c70eae-e62f-4d3b-b3a4-8586e90f3ac8`;
+  constructor() {
+  }
+}
+  /* url = `wss://ws.weatherflow.com/swd/data?api_key=20c70eae-e62f-4d3b-b3a4-8586e90f3ac8`;
   connection$: WebSocketSubject<any>;
   RETRY_SECONDS = 10;
 
@@ -47,4 +54,4 @@ export class WebsocketService {
 
   constructor() {
   }
-}
+} */
