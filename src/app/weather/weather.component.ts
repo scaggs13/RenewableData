@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../weather.service';
-import {WebsocketService} from '../websocket.service';
-import {isEmpty, takeUntil} from 'rxjs/operators';
-import {Subject, Subscription} from 'rxjs';
-import {FormControl} from '@angular/forms';
-import {Message} from '@angular/compiler/src/i18n/i18n_ast';
+import {Subject} from 'rxjs';
 import {VARIABLES} from '../weatherDataVariables';
 
 @Component({
@@ -13,19 +9,19 @@ import {VARIABLES} from '../weatherDataVariables';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  // TODO: get weather data from server side instead of a direct http call.
   variables = VARIABLES;
   data: [] = [];
   destroyed$ = new Subject();
 
-  constructor(private configService: WeatherService, private webSocket: WebsocketService) { }
+  constructor(private weatherService: WeatherService) { }
   wData = {};
   loadData() {
-    // this.configService.weatherData.subscribe(data => this.wData = data.obs[0]); // .obs[0]);
+    // this.weatherService.weatherData.subscribe(data => this.wData = data.obs[0]); // .obs[0]);
   }
   ngOnInit() {
-    this.configService.getLatestWeather();
-    this.configService.weatherData.subscribe(data => this.wData = data.obs[0]);
+    this.weatherService.getLatestWeather();
+    // @ts-ignore
+    this.weatherService.weatherData.subscribe(data => this.wData = data.obs[0]);
   }
 
   epochToJsDate(ts) {
