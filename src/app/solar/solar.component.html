@@ -1,1 +1,9 @@
-<p>solar works!</p>
+<p>{{sData | json}}</p>
+<div>
+  <ul *ngIf="sData">
+    <li *ngFor="let nVar of variablesP"> {{nVar.name}}:
+      <a>{{sData["Poly"][nVar.value]}} {{nVar.units || ""}}</a></li>
+    <li *ngFor="let nVar of variablesM"> {{nVar.name}}:
+      <a>{{sData["Mono"][nVar.value]}} {{nVar.units || ""}}</a></li>
+  </ul>
+</div>

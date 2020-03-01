@@ -1,4 +1,4 @@
-export const VARIABLES: object[] = [
+export const WVARIABLES: object[] = [
   // {name: 'Timestamp', value: 'timestamp', units: 'epoch'},
   {name: 'Temperature', value: 'air_temperature', units: 'F', convM: 9 / 5 , convA: 32},
   {name: 'Barometric Pressure', value: 'barometric_pressure', units: ''},
@@ -11,7 +11,7 @@ export const VARIABLES: object[] = [
   {name: 'Precipitation (Yesterday)', value: 'precip_accum_local_yesterday', units: ''},
   {name: 'Precipitation (Yesterday Final)', value: 'precip_accum_local_yesterday_final', units: ''},
   {name: 'Precipitation minutes (Today)', value: 'precip_minutes_local_day', units: ''},
-  {name: 'Precipitation minutes (Yesterday)', value:'precip_minutes_local_yesterday', units: ''},
+  {name: 'Precipitation minutes (Yesterday)', value: 'precip_minutes_local_yesterday', units: ''},
   {name: 'Precipitation minutes (Yesterday Final)', value: 'precip_minutes_local_yesterday_final', units: ''},
   {name: 'Precipitation Analysis', value: 'precip_analysis_type_yesterday', units: ''},
   {name: 'Wind Average', value: 'wind_avg', units: ''},
@@ -34,3 +34,23 @@ export const VARIABLES: object[] = [
   {name: 'Air Density', value: 'air_density', units: ''},
 ];
 
+export const SPVARIABLES: object[] = [
+  {name: 'Poly Panel 1 (V)', value: 'PolyP1v'},
+  {name: 'Poly Panel 2 (V)', value: 'PolyP2v'},
+  {name: 'Poly Panel 3 (V)', value: 'PolyP3v'},
+  {name: 'Extra (A3)', value: 'A3'},
+  {name: 'Poly Panel 1 (A)', value: 'PolyP1i'},
+  {name: 'Poly Panel 2 (A)', value: 'PolyP2i'},
+  {name: 'Poly Panel 3 (A)', value: 'PolyP3i'},
+  {name: 'Extra (F7)', value: 'F7'}
+  ];
+export const SMVARIABLES: object[] = [
+  {name: 'Mono Panel 1 (V)', value: 'MonoP1v'},
+  {name: 'Mono Panel 2 (V)', value: 'MonoP2v'},
+  {name: 'Mono Panel 3 (V)', value: 'MonoP3v'},
+  {name: 'Extra (A3)', value: 'A3'},
+  {name: 'Mono Panel 1 (A)', value: 'MonoP1i'},
+  {name: 'Mono Panel 2 (A)', value: 'MonoP2i'},
+  {name: 'Mono Panel 3 (A)', value: 'MonoP3i'},
+  {name: 'Extra (F7)', value: 'F7'}
+];

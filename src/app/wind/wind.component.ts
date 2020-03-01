@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ServerConnectService} from '../server-connect.service';
 
 @Component({
   selector: 'app-wind',
@@ -8,10 +7,9 @@ import {ServerConnectService} from '../server-connect.service';
 })
 export class WindComponent implements OnInit {
   message = {};
-  constructor(private serverConn: ServerConnectService) { }
+  constructor() { }
 
   getMessage() {
-    this.serverConn.getMessage().subscribe(mes => this.message = mes);
   }
   ngOnInit() {
     this.getMessage();

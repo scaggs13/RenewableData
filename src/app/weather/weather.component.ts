@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../weather.service';
 import {Subject} from 'rxjs';
-import {VARIABLES} from '../weatherDataVariables';
+import {WVARIABLES} from '../dataVariables';
 
 @Component({
   selector: 'app-weather',
@@ -9,19 +9,15 @@ import {VARIABLES} from '../weatherDataVariables';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  variables = VARIABLES;
-  data: [] = [];
+  variables = WVARIABLES;
   destroyed$ = new Subject();
 
   constructor(private weatherService: WeatherService) { }
   wData = {};
-  loadData() {
-    // this.weatherService.weatherData.subscribe(data => this.wData = data.obs[0]); // .obs[0]);
-  }
   ngOnInit() {
     this.weatherService.getLatestWeather();
     // @ts-ignore
-    this.weatherService.weatherData.subscribe(data => this.wData = data.obs[0]);
+    this.weatherService.weatherData.subscribe(data => this.wData = (data.obs[0] || data));
   }
 
   epochToJsDate(ts) {
