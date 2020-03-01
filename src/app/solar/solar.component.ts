@@ -9,6 +9,7 @@ import {SPVARIABLES, SMVARIABLES} from '../dataVariables';
   styleUrls: ['./solar.component.css']
 })
 export class SolarComponent implements OnInit {
+  svg = './assets/images/solar-panel.svg'
   destroyed$ = new Subject();
   variablesP = SPVARIABLES;
   variablesM = SMVARIABLES;

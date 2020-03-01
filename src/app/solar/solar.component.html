@@ -1,6 +1,31 @@
-<p>{{sData | json}}</p>
+<div class="title-block">
+  Solar Power Generation
+</div>
 <div>
-  <ul *ngIf="sData">
+  <ul class="svg_container">
+    <div class="svg_container">
+      <div class="svg_panel" [inlineSVG]="svg"></div>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[0].name}}: {{sData['Poly'][variablesP[0].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[4].name}}: {{sData['Poly'][variablesP[4].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[1].name}}: {{sData['Poly'][variablesP[1].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[5].name}}: {{sData['Poly'][variablesP[5].value] | number: '1.2-5'}}</li>
+    </div>
+    <div class="svg_container">
+      <div class="svg_panel" [inlineSVG]="svg"></div>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[2].name}}: {{sData['Poly'][variablesP[2].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesP[6].name}}: {{sData['Poly'][variablesP[6].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[0].name}}: {{sData['Mono'][variablesM[0].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[4].name}}: {{sData['Mono'][variablesM[4].value] | number: '1.2-5'}}</li>
+    </div>
+    <div class="svg_container">
+      <div class="svg_panel" [inlineSVG]="svg"></div>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[1].name}}: {{sData['Mono'][variablesM[1].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[5].name}}: {{sData['Mono'][variablesM[5].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[2].name}}: {{sData['Mono'][variablesM[2].value] | number: '1.2-5'}}</li>
+      <li *ngIf="(sData | json) != '{}'">{{variablesM[6].name}}: {{sData['Mono'][variablesM[6].value] | number: '1.2-5'}}</li>
+    </div>
+  </ul>
+  <ul *ngIf="(sData | json) != '{}'">
     <li *ngFor="let nVar of variablesP"> {{nVar.name}}:
       <a>{{sData["Poly"][nVar.value]}} {{nVar.units || ""}}</a></li>
     <li *ngFor="let nVar of variablesM"> {{nVar.name}}:

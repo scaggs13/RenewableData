@@ -1,0 +1,31 @@
+div.svg_container {
+  display: inline-block;
+  width: 30%;
+  padding: 1%;
+}
+
+div.svg_panel {
+  fill: #2A2A2A;
+
+}
+
+div.svg_container li {
+  list-style-type: none;
+  text-align: center;
+  color: #2A2A2A;
+  background-color: #F0BF1E;
+  font-weight: bold;
+}
+ul.svg_container {
+  background-color: #F0BF1E;
+  padding: 0 5%;
+}
+
+div.title-block {
+  background-color: #161616;
+  color: #F0BF1E;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
