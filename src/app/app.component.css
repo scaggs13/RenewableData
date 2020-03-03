@@ -62,6 +62,10 @@ div.title-text {
   font-size: 6vw;
 }
 
+div.title-bar {
+  position: relative;
+}
+
 img {
   max-width: 100%;
   height: auto;

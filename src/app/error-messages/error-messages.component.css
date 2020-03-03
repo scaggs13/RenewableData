@@ -1,0 +1,15 @@
+div.err {
+  text-align: center;
+  font-width: bold;
+  background-color: red;
+  font-size: 4vw;
+  color: white;
+  padding: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  white-space: pre;
+  overflow-wrap: break-spaces;
+}
+li {
+  list-style: none;
+}

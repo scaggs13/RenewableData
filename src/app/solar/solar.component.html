@@ -3,32 +3,47 @@
 </div>
 <div>
   <ul class="svg_container">
-    <div class="svg_container">
+    <div class="svg_container" id="1">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[0].name}}: {{sData['Poly'][variablesP[0].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[4].name}}: {{sData['Poly'][variablesP[4].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[1].name}}: {{sData['Poly'][variablesP[1].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[5].name}}: {{sData['Poly'][variablesP[5].value] | number: '1.2-5'}}</li>
+      <div *ngIf="(sData | json) != '[]'">
+        <li>{{variablesP[0].name}}: {{sData['Poly'][variablesP[0]?.value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[4].name}}: {{sData['Poly'][variablesP[4].value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[1].name}}: {{sData['Poly'][variablesP[1].value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[5].name}}: {{sData['Poly'][variablesP[5].value] | number: '1.2-3'}}</li>
+      </div>
     </div>
-    <div class="svg_container">
+    <div class="svg_container" id="2">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[2].name}}: {{sData['Poly'][variablesP[2].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesP[6].name}}: {{sData['Poly'][variablesP[6].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[0].name}}: {{sData['Mono'][variablesM[0].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[4].name}}: {{sData['Mono'][variablesM[4].value] | number: '1.2-5'}}</li>
+      <div *ngIf="(sData | json) != '[]'">
+        <li>{{variablesP[2].name}}: {{sData['Poly'][variablesP[2].value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[6].name}}: {{sData['Poly'][variablesP[6].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[0].name}}: {{sData['Mono'][variablesM[0].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[4].name}}: {{sData['Mono'][variablesM[4].value] | number: '1.2-3'}}</li>
+      </div>
     </div>
-    <div class="svg_container">
+    <div class="svg_container" id="3">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[1].name}}: {{sData['Mono'][variablesM[1].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[5].name}}: {{sData['Mono'][variablesM[5].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[2].name}}: {{sData['Mono'][variablesM[2].value] | number: '1.2-5'}}</li>
-      <li *ngIf="(sData | json) != '{}'">{{variablesM[6].name}}: {{sData['Mono'][variablesM[6].value] | number: '1.2-5'}}</li>
+      <div *ngIf="(sData | json) != '[]'">
+        <li>{{variablesM[1].name}}: {{sData['Mono'][variablesM[1].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[5].name}}: {{sData['Mono'][variablesM[5].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[2].name}}: {{sData['Mono'][variablesM[2].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[6].name}}: {{sData['Mono'][variablesM[6].value] | number: '1.2-3'}}</li>
+      </div>
     </div>
   </ul>
-  <ul *ngIf="(sData | json) != '{}'">
-    <li *ngFor="let nVar of variablesP"> {{nVar.name}}:
-      <a>{{sData["Poly"][nVar.value]}} {{nVar.units || ""}}</a></li>
-    <li *ngFor="let nVar of variablesM"> {{nVar.name}}:
-      <a>{{sData["Mono"][nVar.value]}} {{nVar.units || ""}}</a></li>
+  <ul class="svg_container" id="cc">
+    <div class="svg_container" id="4">
+      <div class="svg_cc" [inlineSVG]="svgCc"></div>
+      <a class="cc">#1</a>
+      <li>data here </li>
+    </div>
+    <div class="svg_container" id="5">
+      <div class="svg_cc" [inlineSVG]="svgCc"></div>
+      <li>data here </li>
+    </div>
   </ul>
+  <svg id="battery" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 219.5 66">
+    <path d="M4.6 5h198.9v56H4.6z" id="fill"/>
+    <path d="M219.5 14.2H208V0H0v66h208V51.8h11.5V14.2zM198.9 56H9.2V10h189.7v46z" id="outline"/>
+  </svg>
 </div>

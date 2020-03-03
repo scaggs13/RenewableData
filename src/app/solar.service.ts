@@ -10,7 +10,6 @@ export class SolarService {
   public solarData: Observable<object>;
 
   constructor(private http: HttpClient, private socket: Socket) {
-
     this.solarData = this.socket.fromEvent<object>('data_solar');
   }
   getLatestSolar() {

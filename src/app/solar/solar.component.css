@@ -1,12 +1,13 @@
 div.svg_container {
-  display: inline-block;
-  width: 30%;
-  padding: 1%;
-}
+   display: inline-block;
+   width: 30%;
+   padding: 1%;
+  vertical-align: top;
+  text-align: center;
+ }
 
 div.svg_panel {
   fill: #2A2A2A;
-
 }
 
 div.svg_container li {
@@ -19,6 +20,9 @@ div.svg_container li {
 ul.svg_container {
   background-color: #F0BF1E;
   padding: 0 5%;
+  text-align: center;
+}
+#cc {
 }
 
 div.title-block {
@@ -28,4 +32,30 @@ div.title-block {
   font-weight: bold;
   text-align: center;
   padding: 10px;
+  font-family: Verdana;
+}
+div#1.svg_container {
+}
+
+div#3.svg_container {
+}
+
+div#4.svg_container {
+}
+
+div#5.svg_container {
+}
+
+a.cc {
+  position: relative;
+  color: white;
+}
+
+#fill {
+
+}
+
+#battery {
+  padding: 3%;
+  width: 94%;
 }

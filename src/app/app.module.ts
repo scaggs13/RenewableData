@@ -12,6 +12,7 @@ import { DataComponent } from './data/data.component';
 import { WeatherComponent } from './weather/weather.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ErrorMessagesComponent } from './error-messages/error-messages.component';
 
 
 const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
@@ -24,7 +25,8 @@ const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
     SolarComponent,
     WindComponent,
     DataComponent,
-    WeatherComponent
+    WeatherComponent,
+    ErrorMessagesComponent
   ],
   imports: [
     BrowserModule,
