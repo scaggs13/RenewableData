@@ -16,7 +16,7 @@ import { ErrorMessagesComponent } from './error-messages/error-messages.componen
 
 
 // const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
-const config: SocketIoConfig = { url: 'ec2-18-232-93-243.compute-1.amazonaws.com:3000', options: {} };
+const config: SocketIoConfig = { url: '50.17.173.72:3000', options: {} };
 
 @NgModule({
   declarations: [
