@@ -11,7 +11,7 @@ export class ErrorMessagesComponent implements OnInit {
   constructor(errorService: ErrorMessagesService) {
       errorService.errorMsg.subscribe(msg => {
         if (!msg[1] && this.errorMsg) {
-          this.errorMsg.forEach(x => {
+          this.errorMsg.forEach(x => {   // todo: clear all errors under subject
             if (x.includes(msg[0])) {
               const index = this.errorMsg.indexOf(x);
               if (index > -1) {

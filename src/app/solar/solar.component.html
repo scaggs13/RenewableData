@@ -6,28 +6,28 @@
     <div class="svg_container" id="1">
       <div class="svg_panel" [inlineSVG]="svg"></div>
       <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesP[0].name}}: {{sData['Poly'][variablesP[0]?.value] | number: '1.2-3'}}</li>
-        <li>{{variablesP[4].name}}: {{sData['Poly'][variablesP[4].value] | number: '1.2-3'}}</li>
-        <li>{{variablesP[1].name}}: {{sData['Poly'][variablesP[1].value] | number: '1.2-3'}}</li>
-        <li>{{variablesP[5].name}}: {{sData['Poly'][variablesP[5].value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[0].name}}: {{sData['Poly'] ? sData['Poly'][variablesP[0].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesP[4].name}}: {{sData['Poly'] ? sData['Poly'][variablesP[4].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesP[1].name}}: {{sData['Poly'] ? sData['Poly'][variablesP[1].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesP[5].name}}: {{sData['Poly'] ? sData['Poly'][variablesP[5].value] : '' | number: '1.2-3'}}</li>
       </div>
     </div>
     <div class="svg_container" id="2">
       <div class="svg_panel" [inlineSVG]="svg"></div>
       <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesP[2].name}}: {{sData['Poly'][variablesP[2].value] | number: '1.2-3'}}</li>
-        <li>{{variablesP[6].name}}: {{sData['Poly'][variablesP[6].value] | number: '1.2-3'}}</li>
-        <li>{{variablesM[0].name}}: {{sData['Mono'][variablesM[0].value] | number: '1.2-3'}}</li>
-        <li>{{variablesM[4].name}}: {{sData['Mono'][variablesM[4].value] | number: '1.2-3'}}</li>
+        <li>{{variablesP[2].name}}: {{sData['Poly']  ? sData['Poly'][variablesP[2].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesP[6].name}}: {{sData['Poly']  ? sData['Poly'][variablesP[6].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesM[0].name}}: {{sData['Mono']  ? sData['Mono'][variablesM[0].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesM[4].name}}: {{sData['Mono']  ? sData['Mono'][variablesM[4].value] : '' | number: '1.2-3'}}</li>
       </div>
     </div>
     <div class="svg_container" id="3">
       <div class="svg_panel" [inlineSVG]="svg"></div>
       <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesM[1].name}}: {{sData['Mono'][variablesM[1].value] | number: '1.2-3'}}</li>
-        <li>{{variablesM[5].name}}: {{sData['Mono'][variablesM[5].value] | number: '1.2-3'}}</li>
-        <li>{{variablesM[2].name}}: {{sData['Mono'][variablesM[2].value] | number: '1.2-3'}}</li>
-        <li>{{variablesM[6].name}}: {{sData['Mono'][variablesM[6].value] | number: '1.2-3'}}</li>
+        <li>{{variablesM[1].name}}: {{sData['Mono'] ? sData['Mono'][variablesM[1].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesM[5].name}}: {{sData['Mono'] ? sData['Mono'][variablesM[5].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesM[2].name}}: {{sData['Mono'] ? sData['Mono'][variablesM[2].value] : '' | number: '1.2-3'}}</li>
+        <li>{{variablesM[6].name}}: {{sData['Mono'] ? sData['Mono'][variablesM[6].value] : '' | number: '1.2-3'}}</li>
       </div>
     </div>
   </ul>
