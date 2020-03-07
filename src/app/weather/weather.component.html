@@ -9,6 +9,6 @@ Time Stamp: <a> {{epochToJsDate(wData["timestamp"]) }}</a> <br>
 <div class="dataContainer">
 <ul class="info">
   <li class="weatherData" *ngFor="let nVar of variables"> {{nVar.name}}:
-    <a class="data">{{wData[nVar.value]*(nVar.convM || 1)+(nVar.convA || 0)}} {{nVar.units}}</a></li>
+    <a class="data">{{wData[nVar.value]*(nVar['convM'] || 1)+(nVar['convA'] || 0)}} {{nVar['units']}}</a></li>
 </ul>
 </div>
