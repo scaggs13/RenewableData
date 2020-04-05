@@ -1,1 +1,8 @@
-<p>data works!</p>
+<button (click)="histService.getData()">Click me!</button>
+<div>
+  {{histService.historicalData | json}}
+</div>
+<div>
+  <app-chart-form></app-chart-form>
+  <app-chart></app-chart>
+</div>
