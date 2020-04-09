@@ -1,8 +1,7 @@
-<button (click)="histService.getData()">Click me!</button>
 <div>
   {{histService.historicalData | json}}
 </div>
 <div>
-  <app-chart-form></app-chart-form>
-  <app-chart></app-chart>
+  <app-chart-form (addChart)="addChart($event)"></app-chart-form>
+  <template #chartContainer> </template>
 </div>

@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 export class ChartFormComponent implements OnInit {
   dataTypes = [{id: 0, value: 'Solar'}, {id: 1, value: 'Wind'}, {id: 2, value: 'Weather'}];
   submitted = false;
+  @Output() addChart = new EventEmitter<object>();
 
   constructor() {
   }
@@ -18,13 +19,15 @@ export class ChartFormComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.submitted = true;
-    console.log(form.controls);
+    // console.log(form.controls);
+    // todo: convert dates to timestamp values
     const output = {start: form.controls.start.value, end: form.controls.end.value
     , weather: form.controls.Weather.value ? true : false
     , wind: form.controls.Wind.value ? true : false
     , solar: form.controls.Solar.value ? true : false
     , chartType: form.controls.type.value};
-    console.log(output);
+    // console.log(output);
+    this.addChart.emit(output);
   }
 
   // get diagnostic() { return JSON.stringify(this.model); }
@@ -49,5 +52,7 @@ export class ChartFormComponent implements OnInit {
       }
     }
   }
+
+
 }
 

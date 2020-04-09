@@ -30,7 +30,7 @@ export class ChartComponent implements OnInit {
           labelString: 'X axis'
         },
         ticks: {
-          // Include a dollar sign in the ticks
+          // Todo: convert timestamp to a date value
           callback(value, index, values) {
             return '' + value;
           },
@@ -38,7 +38,7 @@ export class ChartComponent implements OnInit {
       }]
     }
   };
-
+  private myDataTypes;
   public myChartLabels = [0, 5];
   public myChartType = 'scatter';
   public myChartLegend = true;
@@ -46,6 +46,7 @@ export class ChartComponent implements OnInit {
   public myChartData = [
     {data: [{x: 0, y: 1}, {x: 1, y: 3}, {x: 2, y: 2}, {x: 3, y: 5}, {x: 4, y: 0}, {x: 5, y: 2}], label: 'Series A', showLine: true}
   ];
+  public rawData;
 
   myChartColors = [
     {
@@ -62,6 +63,21 @@ export class ChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setChart(chartInfo) {
+    this.myChartType = chartInfo.type;
+    this.myDataTypes = chartInfo.dataTypes;
+    // todo: set default axes, x + y for each data type
+    this.rawData = chartInfo.data;
+    // todo: Sort Data
+    this.sortData();
+    this.myChartLabels = [chartInfo.start, chartInfo.end];
+
+  }
+
+  sortData() {
+    // todo: take raw data and the set axis types then sort into the usable chart format into myChartData.
   }
 
 }

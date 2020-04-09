@@ -31,9 +31,9 @@
       <input name="end" type="date" class="form-control" id="end" ngModel required>
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!chartForm.form.valid
-    || !(chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value
-    || chartForm.form.controls.Solar.value) || !(chartForm.form.controls.start.value < chartForm.form.controls.end.value)">
+    <button type="submit" class="btn btn-success" [disabled]="!(chartForm.form.valid
+    && (chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value
+    || chartForm.form.controls.Solar.value) && (chartForm.form.controls.start.value < chartForm.form.controls.end.value))">
       Submit</button>
 
   </form>

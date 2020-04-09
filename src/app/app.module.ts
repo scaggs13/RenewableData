@@ -43,6 +43,7 @@ const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
     ChartsModule,
     FormsModule
   ],
+  entryComponents: [ ChartComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

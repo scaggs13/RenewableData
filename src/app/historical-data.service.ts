@@ -17,7 +17,7 @@ historicalData = {};
     this.socket.emit('get_id', '');
   }
 
-  getData() {
-    this.socket.emit('hist_data', {id: this.id, dataType: 'Solar', start: 1583035976, end: 1583599274});
+  getData(msg) {
+    this.socket.emit('hist_data', msg);
   }
 }
