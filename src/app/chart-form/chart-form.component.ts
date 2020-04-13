@@ -21,11 +21,12 @@ export class ChartFormComponent implements OnInit {
     this.submitted = true;
     // console.log(form.controls);
     // todo: convert dates to timestamp values
-    const output = {start: form.controls.start.value, end: form.controls.end.value
-    , weather: form.controls.Weather.value ? true : false
-    , wind: form.controls.Wind.value ? true : false
-    , solar: form.controls.Solar.value ? true : false
-    , chartType: form.controls.type.value};
+    const output = {start: new Date(form.controls.start.value).getTime() / 1000
+      , end: new Date(form.controls.end.value).getTime() / 1000
+      , weather: form.controls.Weather.value ? true : false
+      , wind: form.controls.Wind.value ? true : false
+      , solar: form.controls.Solar.value ? true : false
+      , chartType: form.controls.type.value};
     // console.log(output);
     this.addChart.emit(output);
   }

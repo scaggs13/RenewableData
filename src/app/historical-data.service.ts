@@ -7,17 +7,22 @@ import { Socket } from 'ngx-socket-io';
 export class HistoricalDataService {
 id = '';
 historicalData = {};
+private dataAvailable = false;
   constructor(private socket: Socket) {
     this.socket.on('SocketID', (msg) => {
       this.id = msg;
     });
     this.socket.on('hist_data_', (msg) => {
-      this.historicalData = msg;
+      // this.historicalData = new Promise<string>(((resolve, reject) => {
+      //  resolve(msg);
+      // }));
     });
     this.socket.emit('get_id', '');
   }
 
-  getData(msg) {
-    this.socket.emit('hist_data', msg);
+  getData(msg, fn) {
+    this.socket.emit('hist_data', msg, (data) => {
+      fn(data);
+    });
   }
 }

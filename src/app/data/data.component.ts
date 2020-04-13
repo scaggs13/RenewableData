@@ -22,20 +22,25 @@ export class DataComponent implements OnInit {
 
     const factory: ComponentFactory<ChartComponent> = this.resolver.resolveComponentFactory(ChartComponent);
     this.componentRef = this.container.createComponent(factory);
-    const temp = {type: formValues.chartType, start: formValues.start, end: formValues.end
-      , dataTypes: [], rawData: {}};
-    if (formValues.Weather) {
-      temp.dataTypes.push({name: 'Weather', x: 'timestamp', y: 'Temperature'});
+    const temp = {
+      type: formValues.chartType, start: formValues.start, end: formValues.end
+      , dataTypes: [], rawData: {}
+    };
+    if (formValues.weather) {
+      temp.dataTypes.push({name: 'Weather', x: 'Timestamp', y: 'air_temperature'});
     }
-    if (formValues.Wind) {
-      temp.dataTypes.push({name: 'Wind', x: 'timestamp'});
+    if (formValues.wind) {
+      temp.dataTypes.push({name: 'Wind', x: 'Timestamp', y: ''});
     }
-    if (formValues.Solar) {
-      temp.dataTypes.push({name: 'Solar', x: 'timestamp'});
+    if (formValues.solar) {
+      temp.dataTypes.push({name: 'Solar', x: 'Timestamp', y: 'PolyP1v', y_ref: 'Poly'});
     }
-    // this.histService.getData(formValues);
-    temp.rawData = this.histService.historicalData; // todo: This might not work. Especially if it takes a long time to load.
-    // todo: find out how to wait until this value is assigned.
-    this.componentRef.instance.setChart(formValues);
+    this.histService.getData(formValues, (data) => {
+      temp.rawData = data;
+      console.log(temp.rawData);
+      this.componentRef.instance.setChart(temp);
+    });
+
+
   }
 }
