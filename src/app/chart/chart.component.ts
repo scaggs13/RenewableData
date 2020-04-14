@@ -190,7 +190,7 @@ export class ChartComponent implements OnInit {
   }
 
   addYs(data, name) {
-    const values = []
+    const values = [];
     if (name === 'Solar') {
       // tslint:disable-next-line:forin
       for (const keys in JSON.parse(data.Poly.S)) {
