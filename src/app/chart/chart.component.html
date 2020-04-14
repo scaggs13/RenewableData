@@ -9,3 +9,30 @@
           [colors]="myChartColors"
   ></canvas>
 </div>
+<div class="hideable-container">
+  <label>
+    x min:
+    <input type="date" [ngModel]="myChartLabels[0]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setStartX($event)" placeholder="Start Date">
+  </label>
+  <label>
+    x max:
+    <input type="date" [ngModel]="myChartLabels[1]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setEndX($event)" placeholder="End Date">
+  </label>
+  <label>
+    Begin at zero:
+    <input type="checkbox" [(ngModel)]="myChartOptions.scales.yAxes[0].ticks.beginAtZero" (ngModelChange)="resetChartData()"> {{myChartOptions.scales.yAxes[0].ticks.beginAtZero}}
+  </label>
+  <div *ngFor="let plot of myDataTypes">
+    <label>
+    y axis:
+      <select  *ngIf="sortedData[plot.name]" type="select" [(ngModel)]="plot.y" (ngModelChange)="changeYAxis(plot, $event)">
+        <option *ngFor="let s of sortedData[plot.name].y_values">{{s}}</option>
+      </select>
+    </label>
+    <label>
+      scale?:
+      <input type="checkbox" [ngModel]="(plot.scale == 1)? false: true" (ngModelChange)="setScale(plot, $event)">
+    </label>
+    Scale Factor: {{plot.scale | number: '1.2-3'}}
+  </div>
+</div>
