@@ -18,8 +18,8 @@ import { ChartComponent } from './chart/chart.component';
 import { ChartFormComponent } from './chart-form/chart-form.component';
 
 
-const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
-// const config: SocketIoConfig = { url: 'http://50.17.173.72:3000', options: {} };
+// const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'http://50.17.173.72:3000', options: {} };
 
 @NgModule({
   declarations: [

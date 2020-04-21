@@ -174,6 +174,11 @@ export class ChartComponent implements OnInit {
             if (item.name === 'Solar') {
               this.rawData[raw].Poly.S = JSON.parse(this.rawData[raw].Poly.S);
               this.rawData[raw].Mono.S = JSON.parse(this.rawData[raw].Mono.S);
+              this.rawData[raw].Battery.S = JSON.parse(this.rawData[raw].Battery.S);
+              this.rawData[raw].ChargeControllerM.S = JSON.parse(this.rawData[raw].ChargeControllerM.S);
+              this.rawData[raw].ChargeControllerP.S = JSON.parse(this.rawData[raw].ChargeControllerP.S);
+              this.rawData[raw].Inverter.S = JSON.parse(this.rawData[raw].Inverter.S);
+
             }
             data.push(this.rawData[raw]);
           }
@@ -218,6 +223,22 @@ export class ChartComponent implements OnInit {
       }
       // tslint:disable-next-line:forin
       for (const keys in data.Mono.S) {
+        values.push(keys.toString());
+      }
+      // tslint:disable-next-line:forin
+      for (const keys in data.Battery.S) {
+        values.push(keys.toString());
+      }
+      // tslint:disable-next-line:forin
+      for (const keys in data.ChargeControllerM.S) {
+        values.push(keys.toString());
+      }
+      // tslint:disable-next-line:forin
+      for (const keys in data.ChargeControllerP.S) {
+        values.push(keys.toString());
+      }
+      // tslint:disable-next-line:forin
+      for (const keys in data.Inverter.S) {
         values.push(keys.toString());
       }
     } else {
