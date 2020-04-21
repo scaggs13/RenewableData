@@ -1,40 +1,58 @@
 <div class="chartForm">
   <h1>Chart Form</h1>
-  <form #chartForm="ngForm" (ngSubmit)="onSubmit(chartForm)" >
-    <div class="form-group">
-        <div class="dropdown">
-          <div (click)="dropDown()" class="dropbtn">Select Chart Data</div>
-          <div id="myDropdown" class="dropdown-content">
-            <div *ngFor="let op of dataTypes" class="checkOption">
-              <label class="container">{{op.value}}
-                <input type="checkbox" [(ngModel)]="op.selected" name="{{op.value}}" checked="checked">
-                <span class="checkmark"></span>
-              </label>
+  <form class="form-cont" #chartForm="ngForm" (ngSubmit)="onSubmit(chartForm)" >
+    <div class="split-group">
+      <div class="form-group">
+          <div class="dropdown">
+            <div (click)="dropDown()" class="dropbtn">Select Chart Data</div>
+            <div id="myDropdown" class="dropdown-content">
+              <div *ngFor="let op of dataTypes" class="checkOption">
+                <label class="container">{{op.value}}
+                  <input type="checkbox" [(ngModel)]="op.selected" name="{{op.value}}" checked="checked">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="type">Select Chart Type</label>
-      <select name="type" type="select" class="form-control" id="type" ngModel required>
-        <option>scatter</option>
-      </select>
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="type">Select Chart Type:</label>
+        <select name="type" type="select" class="form-control chart-type" id="type" ngModel required>
+          <option>scatter</option>
+          <option>bar</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="start">Start Date</label>
-      <input name="start" type="date" class="form-control" id="start" ngModel required>
-    </div>
+      <div class="form-group">
+        <label for="start">Start Date:</label>
+        <input name="start" type="date" class="form-control input-date" id="start" ngModel required>
+      </div>
 
-    <div class="form-group">
-      <label for="end">End Date</label>
-      <input name="end" type="date" class="form-control" id="end" ngModel required>
+      <div class="form-group">
+        <label for="end">End Date:</label>
+        <input name="end" type="date" class="form-control input-date" id="end" ngModel required>
+      </div>
     </div>
-
-    <button type="submit" class="btn btn-success" [disabled]="!(chartForm.form.valid
-    && (chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value
-    || chartForm.form.controls.Solar.value) && (chartForm.form.controls.start.value < chartForm.form.controls.end.value))">
-      Submit</button>
+    <div class="submit-group">
+      <div *ngIf="chartForm.form.valid" class="chart-settings">Add a {{chartForm.form.controls.type.value}} chart using
+        {{(chartForm.form.controls.Weather.value)? 'Weather': ''}}
+        {{(chartForm.form.controls.Weather.value && chartForm.form.controls.Wind.value
+          && chartForm.form.controls.Solar.value)? ', ':
+          ((chartForm.form.controls.Weather.value && chartForm.form.controls.Wind.value) ||
+            (chartForm.form.controls.Weather.value && chartForm.form.controls.Solar.value))? ' and ': ''}}
+        {{(chartForm.form.controls.Wind.value)? 'Wind': ''}}
+        {{(chartForm.form.controls.Wind.value
+        && chartForm.form.controls.Solar.value)? ' and ': ''}}
+        {{(chartForm.form.controls.Solar.value)? 'Solar': ''}}
+        data with a date
+        ranging from {{chartForm.form.controls.start.value}}
+         to {{chartForm.form.controls.end.value}} <br>
+      </div>
+      <button type="submit" class="btn btn-success btn-submit" [disabled]="!(chartForm.form.valid
+      && (chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value
+      || chartForm.form.controls.Solar.value) && (chartForm.form.controls.start.value < chartForm.form.controls.end.value))">
+        Submit</button>
+    </div>
 
   </form>
 </div>

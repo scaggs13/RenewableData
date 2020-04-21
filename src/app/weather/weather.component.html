@@ -1,14 +1,99 @@
-<div>
-  {{ wData | json }}
-</div>
-
-
-
-
-Time Stamp: <a> {{epochToJsDate(wData["timestamp"]) }}</a> <br>
-<div class="dataContainer">
-<ul class="info">
-  <li class="weatherData" *ngFor="let nVar of variables"> {{nVar.name}}:
-    <a class="data">{{wData[nVar.value]*(nVar['convM'] || 1)+(nVar['convA'] || 0)}} {{nVar['units']}}</a></li>
-</ul>
+<div class="title-block">Weather</div>
+<div class="data-container">
+  <div class="last-time">Last data gathered at: {{epochToJsDate(wData["timestamp"]) }}</div>
+  <div class="sub-title">Temperature</div>
+  <div class="data-box" id="temp">
+    <div class="sub-box">
+      <div class="data">
+        Temperature: <a>{{wData["air_temperature"]}} &#176;C</a><br>
+      </div>
+      <div class="data">
+        Feels Like: <a>{{wData["feels_like"]}} &#176;C</a><br>
+        Heat Index: <a>{{wData["heat_index"]}} &#176;C</a><br>
+        Wind Chill: <a>{{wData["wind_chill"]}} &#176;C</a><br>
+      </div>
+      <div class="data">
+        Dew Point: <a>{{wData["dew_point"]}} &#176;C</a><br>
+        Wet Bulb Temperature: <a>{{wData["wet_bulb_temperature"]}} &#176;C</a><br>
+        Change in Temperature: <a>{{wData["delta_t"]}} &#176;C</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="sub-title">Pressure</div>
+  <div class="data-box" id="pres">
+    <div class="sub-box">
+      <div class="data">
+        Barometric Pressure: <a>{{wData["barometric_pressure"]}} mb</a><br>
+        Station Pressure: <a>{{wData["station_pressure"]}} mb</a><br>
+        Sea Level Pressure: <a>{{wData["sea_level_pressure"]}} mb</a><br>
+      </div>
+      <div class="data">
+        Air Density: <a>{{wData["air_density"]}}</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="sub-title">Wind</div>
+  <div class="data-box" id="wind">
+    <div class="sub-box">
+      <div class="data">
+        Wind Average: <a>{{wData["wind_avg"]}} m/s</a><br>
+        Wind Direction: <a>{{convertWindDirection(wData["wind_direction"])}} {{wData["wind_direction"]}} &#176;</a><br>
+      </div>
+      <div class="data">
+        Wind Gust: <a>{{wData["wind_gust"]}} m/s</a><br>
+        Wind Lull: <a>{{wData["wind_lull"]}} m/s</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="sub-title">Solar</div>
+  <div class="data-box" id="solar">
+    <div class="sub-box">
+      <div class="data">
+        Solar Radiation: <a>{{wData["solar_radiation"]}} W/m2</a><br>
+      </div>
+      <div class="data">
+        UV: <a>{{wData["uv"]}}</a><br>
+      </div>
+      <div class="data">
+        Brightness: <a>{{wData["brightness"]}} lux</a><br>
+      </div>
+    </div>
+  </div>
+  <div class="sub-title">Humidity</div>
+  <div class="data-box" id="humidity">
+    <div class="sub-box">
+      <div class="data">
+        Relative Humidity: <a>{{wData["relative_humidity"]}} %</a><br>
+      </div>
+      <div class="data">
+        Precipitation: <a>{{wData["precip"]}}</a><br>
+        Last Hour: <a>{{wData["precip_accum_last_1hr"]}}</a><br>
+        Today: <a>{{wData["precip_accum_local_day"]}}</a><br>
+        Yesterday: <a>{{wData["precip_accum_local_yesterday"]}}</a><br>
+        Yesterday Final: <a>{{wData["precip_accum_local_yesterday_final"]}}</a><br>
+      </div>
+      <div class="data">
+        Precipitation Minutes: <br>
+        Today: <a>{{wData["precip_minutes_local_day"]}}</a> <br>
+        Yesterday: <a>{{wData["precip_minutes_local_yesterday"]}}</a><br>
+        Yesterday Final: <a>{{wData["precip_minutes_local_yesterday_final"]}}</a>  <br>
+      </div>
+    </div>
+  </div>
+  <div class="sub-title">Lightning</div>
+  <div class="data-box" id="lighting">
+    <div class="sub-box">
+      <div class="data">
+        Last Lightning Strike <br>
+        Time: <a>{{wData["lightning_strike_last_epoch"]*1000 | date: 'short'}}</a><br>
+        Distance: <a>{{wData["lightning_strike_last_distance"]}} km</a><br>
+      </div>
+      <div class="data">
+        Lighting Strike Count: <a>{{wData["lightning_strike_count"]}} strikes</a><br>
+      </div>
+      <div class="data">
+        Count (past 3 hours): <a>{{wData["lightning_strike_count_last_3hr"]}} strikes</a><br>
+      </div>
+    </div>
+  </div>
 </div>

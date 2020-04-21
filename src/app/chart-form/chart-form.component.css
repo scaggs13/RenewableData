@@ -1,7 +1,7 @@
 /* Dropdown Button */
 .dropbtn {
   background-color: #2A2A2A;
-  color: white;
+  color: #F0BF1E;
   padding: 8px;
   font-size: 16px;
   border: none;
@@ -10,8 +10,7 @@
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #f1f1f1;
-  color: #111111;
+  background-color: #111111;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -26,7 +25,7 @@
   position: absolute;
   background-color: #f1f1f1;
   min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -105,3 +104,75 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.chartForm {
+  background-color: #F0BF1E;
+  color: #2A2A2A;
+  padding-bottom: 15px;
+}
+
+.input-date {
+  background-color: #2A2A2A;
+  color: #F0BF1E;
+  border-style: none;
+  font-family: Verdana, serif;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.chart-type {
+  background-color: #2A2A2A;
+  color: #F0BF1E;
+  border-style: none;
+  font-family: Verdana, serif;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.submit-group {
+  display: inline-block;
+  float: right;
+  vertical-align: bottom;
+  background-color: #F0BF1E;
+  margin-right: 15%;
+  overflow: auto;
+  max-width: 50%;
+}
+
+@media only screen and (max-width: 730px) {
+  .submit-group {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+}
+
+.btn-submit {
+  background-color: #2A2A2A;
+  color: #F0BF1E;
+  border-color: #F0BF1E;
+  border-radius: 2px;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  float: right;
+}
+
+.btn-submit:hover {
+  background-color: #111111;
+}
+
+.btn-submit:disabled {
+  background-color: #555555;
+  visibility: hidden;
+}
+
+.split-group {
+  display: inline-block;
+}
+

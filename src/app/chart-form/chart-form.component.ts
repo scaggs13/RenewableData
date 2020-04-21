@@ -21,14 +21,17 @@ export class ChartFormComponent implements OnInit {
     this.submitted = true;
     // console.log(form.controls);
     // todo: convert dates to timestamp values
-    const output = {start: new Date(form.controls.start.value).getTime() / 1000
+    const output = {
+      start: new Date(form.controls.start.value).getTime() / 1000
       , end: new Date(form.controls.end.value).getTime() / 1000
-      , weather: form.controls.Weather.value ? true : false
-      , wind: form.controls.Wind.value ? true : false
-      , solar: form.controls.Solar.value ? true : false
-      , chartType: form.controls.type.value};
+      , weather: !!form.controls.Weather.value
+      , wind: !!form.controls.Wind.value
+      , solar: !!form.controls.Solar.value
+      , chartType: form.controls.type.value
+    };
     // console.log(output);
     this.addChart.emit(output);
+    form.resetForm();
   }
 
   // get diagnostic() { return JSON.stringify(this.model); }
@@ -54,6 +57,8 @@ export class ChartFormComponent implements OnInit {
     }
   }
 
-
+  getTime(epochTime) {
+    const date = new Date(epochTime / 1000);
+    return '' + date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
+  }
 }
-

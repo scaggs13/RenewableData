@@ -9,7 +9,7 @@ ul {
   top: 0;
   z-index: 10;
   font-size: medium;
-  font-family: Arial;
+  font-family: Arial, serif;
 }
 
 li a.selected {
@@ -77,4 +77,8 @@ img {
 
 h1 {
   margin: 0;
+}
+
+.bottom-bar {
+  min-height: 50px;
 }

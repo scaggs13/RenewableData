@@ -1,0 +1,13 @@
+.title-block {
+  background-color: #111111;
+  color: #F0BF1E;
+  font-family: Verdana, serif;
+  font-size: xx-large;
+  font-weight: bold;
+  padding:5px;
+  text-align: center;
+}
+
+#export:disabled {
+  visibility: hidden;
+}

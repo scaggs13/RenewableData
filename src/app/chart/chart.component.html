@@ -10,29 +10,41 @@
   ></canvas>
 </div>
 <div class="hideable-container">
-  <label>
-    x min:
-    <input type="date" [ngModel]="myChartLabels[0]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setStartX($event)" placeholder="Start Date">
-  </label>
-  <label>
-    x max:
-    <input type="date" [ngModel]="myChartLabels[1]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setEndX($event)" placeholder="End Date">
-  </label>
-  <label>
-    Begin at zero:
-    <input type="checkbox" [(ngModel)]="myChartOptions.scales.yAxes[0].ticks.beginAtZero" (ngModelChange)="resetChartData()"> {{myChartOptions.scales.yAxes[0].ticks.beginAtZero}}
-  </label>
-  <div *ngFor="let plot of myDataTypes">
-    <label>
-    y axis:
-      <select  *ngIf="sortedData[plot.name]" type="select" [(ngModel)]="plot.y" (ngModelChange)="changeYAxis(plot, $event)">
-        <option *ngFor="let s of sortedData[plot.name].y_values">{{s}}</option>
-      </select>
-    </label>
-    <label>
-      scale?:
-      <input type="checkbox" [ngModel]="(plot.scale == 1)? false: true" (ngModelChange)="setScale(plot, $event)">
-    </label>
-    Scale Factor: {{plot.scale | number: '1.2-3'}}
+  <div class="container-header" (click)="openChartSettings($event)">Chart Settings</div>
+  <div class="hideable-content" id="hideable-content">
+    <div class="overall-settings">Overall Adjustments:
+      <label>
+        x min:
+        <input type="date" [ngModel]="myChartLabels[0]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setStartX($event)" placeholder="Start Date">
+      </label>
+      <label>
+        x max:
+        <input type="date" [ngModel]="myChartLabels[1]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setEndX($event)" placeholder="End Date">
+      </label>
+      <label>
+        Begin at zero:
+        <input type="checkbox" [(ngModel)]="myChartOptions.scales.yAxes[0].ticks.beginAtZero" (ngModelChange)="resetChartData()"> {{myChartOptions.scales.yAxes[0].ticks.beginAtZero}}
+      </label>
+    </div>
+    <div *ngFor="let plot of myDataTypes" class="plot-settings">
+      <label>
+      y axis:
+        <select  *ngIf="sortedData[plot.name]" [(ngModel)]="plot.y" (ngModelChange)="changeYAxis(plot, $event)">
+          <option *ngFor="let s of sortedData[plot.name].y_values">{{s}}</option>
+        </select>
+      </label>
+      <label>
+        scale?:
+        <input type="checkbox" [ngModel]="(plot.scale!=1)" (ngModelChange)="setScale(plot, $event)">
+      </label>
+      Scale Factor: {{plot.scale | number: '1.2-3'}}
+    </div>
+    <div class="popup-opener" (click)="openPopUp($event)">Add Plot
+      <div class="popup" id="myPopup">
+        <div *ngFor="let title of sortedData | keyvalue" class="option" (click)="addPlot(title.key)">
+          {{title.key}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

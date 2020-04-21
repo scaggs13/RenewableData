@@ -1,0 +1,105 @@
+.popup-opener {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #555555;
+  color: #F0BF1E;
+}
+
+.popup-opener:hover {
+  background-color: #cccccc;
+}
+
+.popup-opener .popup {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.popup-opener .popup::after {
+  content: "";
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.popup-opener .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.option {
+  background-color: #404040;
+  color: whitesmoke;
+}
+
+.option:hover {
+  background-color: #2980B9;
+}
+
+.hideable-container .hideable-content{
+  text-align: center;
+  display: none
+}
+
+.hideable-container .show {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+.hideable-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: #555555;
+}
+
+.container-header {
+  cursor: pointer;
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-color: #202020;
+}
+
+.plot-settings {
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10px;
+  border-bottom-style: dashed;
+  border-color: #202020;
+  border-bottom-width: 1px;
+}
+
+.overall-settings {
+  border-bottom-style: dashed;
+  border-color: #202020;
+}

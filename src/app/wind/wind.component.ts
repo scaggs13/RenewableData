@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WindComponent implements OnInit {
   message = {};
+  svgTurbine = './assets/images/TurbineTop.svg';
+  svgTower = './assets/images/Tower.svg';
   constructor() { }
 
   getMessage() {

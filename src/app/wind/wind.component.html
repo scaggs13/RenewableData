@@ -1,2 +1,28 @@
-<p>wind works!</p>
-{{message | json}}
+<div class="title-block" id="title">Wind Power Generation</div>
+<div class="container">
+  <div class="svg_container">
+    <div class="svg_turbine" [inlineSVG]="svgTurbine"></div>
+    <div class="svg_tower" [inlineSVG]="svgTower"></div>
+  </div>
+  <div class="data_container">
+    <div class="box">
+      <div class="title-block"><u><b>3 phase output wires <br></b> </u></div>
+      <div class="three-phase">
+        <div class="phase"> 1 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
+        <div class="phase"> 2 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
+        <div class="phase"> 3 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="title-block"><u><b>Battery<br></b></u></div>
+      Voltage: (voltage) Volts <br>
+      Current: (current) Amps <br>
+    </div>
+    <div class="box">
+      <div class="title-block"><u><b>Load<br></b></u></div>
+      Voltage: (voltage) Volts <br>
+      Current: (current) Volts <br>
+
+    </div>
+  </div>
+</div>

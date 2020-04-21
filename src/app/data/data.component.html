@@ -1,7 +1,7 @@
-<div>
-  {{histService.historicalData | json}}
-</div>
-<div>
+<div class="title-block">Historical Data Charting</div>
+<div class="container">
   <app-chart-form (addChart)="addChart($event)"></app-chart-form>
-  <template #chartContainer> </template>
+  <div class="title-block" [hidden]="components.length == 0">Charts</div>
+  <template #chartContainer id="chart-container"> </template>
 </div>
+<input type="button" id="export" [disabled]="components.length == 0" (click)="exportData()" name="Export" value="Export Data">
