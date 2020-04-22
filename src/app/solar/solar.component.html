@@ -2,48 +2,114 @@
   Solar Power Generation
 </div>
 <div>
-  <ul class="svg_container">
-    <div class="svg_container" id="1">
+  <div class="svg_container1">
+    <div class="svg_container-p" id="1">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesP[0]['name']}}: {{(sData['Poly'] ? sData['Poly'][variablesP[0]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesP[4]['name']}}: {{(sData['Poly'] ? sData['Poly'][variablesP[4]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesP[1]['name']}}: {{(sData['Poly'] ? sData['Poly'][variablesP[1]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesP[5]['name']}}: {{(sData['Poly'] ? sData['Poly'][variablesP[5]['value']] : '') | number: '1.2-3'}}</li>
+      <div *ngIf="(sData | json) != '[]'" class="data">
+        {{variablesP[0]['name']}}: <a class="value">{{(sData['Poly'] ? sData['Poly'][variablesP[0]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesP[4]['name']}}: <a class="value">{{(sData['Poly'] ? sData['Poly'][variablesP[4]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesP[1]['name']}}: <a class="value">{{(sData['Poly'] ? sData['Poly'][variablesP[1]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesP[5]['name']}}: <a class="value">{{(sData['Poly'] ? sData['Poly'][variablesP[5]['value']] : '') | number: '1.2-3'}}</a><br>
       </div>
     </div>
-    <div class="svg_container" id="2">
+    <div class="svg_container-p" id="2">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesP[2]['name']}}: {{(sData['Poly']  ? sData['Poly'][variablesP[2]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesP[6]['name']}}: {{(sData['Poly']  ? sData['Poly'][variablesP[6]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesM[0]['name']}}: {{(sData['Mono']  ? sData['Mono'][variablesM[0]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesM[4]['name']}}: {{(sData['Mono']  ? sData['Mono'][variablesM[4]['value']] : '') | number: '1.2-3'}}</li>
+      <div *ngIf="(sData | json) != '[]'" class="data">
+        {{variablesP[2]['name']}}: <a class="value">{{(sData['Poly']  ? sData['Poly'][variablesP[2]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesP[6]['name']}}: <a class="value">{{(sData['Poly']  ? sData['Poly'][variablesP[6]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesM[0]['name']}}: <a class="value">{{(sData['Mono']  ? sData['Mono'][variablesM[0]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesM[4]['name']}}: <a class="value">{{(sData['Mono']  ? sData['Mono'][variablesM[4]['value']] : '') | number: '1.2-3'}}</a><br>
       </div>
     </div>
-    <div class="svg_container" id="3">
+    <div class="svg_container-p" id="3">
       <div class="svg_panel" [inlineSVG]="svg"></div>
-      <div *ngIf="(sData | json) != '[]'">
-        <li>{{variablesM[1]['name']}}: {{(sData['Mono'] ? sData['Mono'][variablesM[1]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesM[5]['name']}}: {{(sData['Mono'] ? sData['Mono'][variablesM[5]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesM[2]['name']}}: {{(sData['Mono'] ? sData['Mono'][variablesM[2]['value']] : '') | number: '1.2-3'}}</li>
-        <li>{{variablesM[6]['name']}}: {{(sData['Mono'] ? sData['Mono'][variablesM[6]['value']] : '') | number: '1.2-3'}}</li>
+      <div *ngIf="(sData | json) != '[]'" class="data">
+        {{variablesM[1]['name']}}: <a class="value">{{(sData['Mono'] ? sData['Mono'][variablesM[1]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesM[5]['name']}}: <a class="value">{{(sData['Mono'] ? sData['Mono'][variablesM[5]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesM[2]['name']}}: <a class="value">{{(sData['Mono'] ? sData['Mono'][variablesM[2]['value']] : '') | number: '1.2-3'}}</a><br>
+        {{variablesM[6]['name']}}: <a class="value">{{(sData['Mono'] ? sData['Mono'][variablesM[6]['value']] : '') | number: '1.2-3'}}</a><br>
       </div>
     </div>
-  </ul>
-  <ul class="svg_container" id="cc">
-    <div class="svg_container" id="4">
+  </div>
+  <div class="svg_container1" id="cc">
+    <div class="svg_container-cc" id="4">
       <div class="svg_cc" [inlineSVG]="svgCc"></div>
-      <a class="cc">#1</a>
-      <li>data here </li>
+      <div class="data">
+        <a class="cc">Poly</a>
+        Voltage in (V): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['In_V'] : '') | number: '1.2-3'}}</a> <br>
+        Current in (A): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['In_I'] : '') | number: '1.2-3'}}</a> <br>
+        Voltage out (V): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['Batt_V'] : '') | number: '1.2-3'}}</a> <br>
+        Current out (A): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['Out_I'] : '') | number: '1.2-3'}}</a> <br>
+        kWh out (kWh): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['Out_kWh'] : '') | number: '1.2-3'}}</a> <br>
+        Amp hours out (Ah): <a class="value">{{(sData['ChargeControllerP'] ? sData['ChargeControllerP']['Out_AH'] : '') | number: '1.2-3'}}</a> <br>
+      </div>
     </div>
-    <div class="svg_container" id="5">
+    <div class="svg_container-cc" id="5">
       <div class="svg_cc" [inlineSVG]="svgCc"></div>
-      <li>data here </li>
+      <div class="data">
+        <a class="cc">Mono</a>
+        Voltage in (V): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['In_V'] : '') | number: '1.2-3'}}</a> <br>
+        Current in (A): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['In_I'] : '') | number: '1.2-3'}}</a> <br>
+        Voltage out (V): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['Batt_V'] : '') | number: '1.2-3'}}</a> <br>
+        Current out (A): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['Out_I'] : '') | number: '1.2-3'}}</a> <br>
+        kWh out (kWh): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['Out_kWh'] : '') | number: '1.2-3'}}</a> <br>
+        Amp hours out (Ah): <a class="value">{{(sData['ChargeControllerM'] ? sData['ChargeControllerM']['Out_AH'] : '') | number: '1.2-3'}}</a> <br>
+      </div>
     </div>
-  </ul>
-  <svg id="battery" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 219.5 66">
-    <path d="M4.6 5h198.9v56H4.6z" id="fill"/>
-    <path d="M219.5 14.2H208V0H0v66h208V51.8h11.5V14.2zM198.9 56H9.2V10h189.7v46z" id="outline"/>
-  </svg>
+  </div>
+  <div class="battery-container">
+    <svg id="battery" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 219.5 66">
+      <path d="M4.6 5h198.9v56H4.6z" id="fill"/>
+      <path d="M219.5 14.2H208V0H0v66h208V51.8h11.5V14.2zM198.9 56H9.2V10h189.7v46z" id="outline"/>
+    </svg>
+    <div class="battery-text">
+      {{sData['Battery'] ? sData['Battery']['SOC'] + '%': '%'}}
+    </div>
+  </div>
+  <div class="hideable-data">
+    <div class="hide-button" (click)="hideBatteryData($event)">Show Battery Details</div>
+    <div class="battery-data">
+      <div class="data-column">
+        Shunt A I: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_A_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+        Shunt A AH: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_A_AH'] : '' | number: '1.2-3'}}</a> Amp-hours <br>
+        Shunt A kWh: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_A_kWh'] : '' | number: '1.2-3'}}</a> kWatt-hours <br>
+        Shunt B I: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_B_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+        Shunt B AH: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_B_AH'] : '' | number: '1.2-3'}}</a> Amp-hours <br>
+        Shunt B kWh: <a class="value">{{sData['Battery'] ? sData['Battery']['Shunt_B_kWh'] : '' | number: '1.2-3'}}</a> kWatt-hours <br>
+        State Of Charge: <a class="value">{{sData['Battery'] ? sData['Battery']['SOC'] : '' | number: '1.2-3'}}</a> %<br>
+        Min State Of Charge: <a class="value">{{sData['Battery'] ? sData['Battery']['Min_SOC'] : '' | number: '1.2-3'}}</a> % <br>
+        Days since full: <a class="value">{{sData['Battery'] ? sData['Battery']['Days_since_full'] : '' | number: '1.2-3'}}</a> Days <br>
+      </div>
+      <div class="data-column">
+        CHG parms met: <a class="value">{{sData['Battery'] ? sData['Battery']['CHG_parms_met'] : ''}}</a> <br>
+        In AH today: <a class="value">{{sData['Battery'] ? sData['Battery']['In_AH_today'] : '' | number: '1.2-3'}}</a> Amp-hours <br>
+        Out AH today: <a class="value">{{sData['Battery'] ? sData['Battery']['Out_AH_today'] : '' | number: '1.2-3'}}</a> Amp-hours <br>
+        In kWh today: <a class="value">{{sData['Battery'] ? sData['Battery']['In_kWh_today'] : '' | number: '1.2-3'}}</a> kWatt-hours <br>
+        Out kWh today: <a class="value">{{sData['Battery'] ? sData['Battery']['Out_kWh_today'] : '' | number: '1.2-3'}}</a> kWatt-hours <br>
+        Net CFC AH: <a class="value">{{sData['Battery'] ? sData['Battery']['Net_CFC_AH'] : '' | number: '1.2-3'}}</a> Amp-hours <br>
+        Net CFC kWh: <a class="value">{{sData['Battery'] ? sData['Battery']['Net_CFC_kWh'] : '' | number: '1.2-3'}}</a> kWatt-hours <br>
+        Batt V: <a class="value">{{sData['Battery'] ? sData['Battery']['Batt_V'] : '' | number: '1.2-3'}}</a> Volts <br>
+        Batt temp: <a class="value">{{sData['Battery'] ? sData['Battery']['Batt_temp'] : '' | number: '1.2-3'}}</a> C <br>
+      </div>
+    </div>
+  </div>
+  <div class="inverter">
+    <div class="inner-container">
+      <div class="svg_inv" [inlineSVG]="svgInv"></div>
+    </div>
+    <div class="sub-title">Inverter</div>
+    <div class="inverter-data">
+      <div class="data-column">
+        Inv_I: <a class="value">{{sData['Inverter'] ? sData['Inverter']['Inv_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+        Chg_I: <a class="value">{{sData['Inverter'] ? sData['Inverter']['Chg_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+        Buy_I: <a class="value">{{sData['Inverter'] ? sData['Inverter']['Buy_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+        Sell_I: <a class="value">{{sData['Inverter'] ? sData['Inverter']['Sell_I'] : '' | number: '1.2-3'}}</a> Amps <br>
+      </div>
+      <div class="data-column">
+        VAC_in: <a class="value">{{sData['Inverter'] ? sData['Inverter']['VAC_in'] : '' | number: '1.2-3'}}</a> VAC <br>
+        VAC_out: <a class="value">{{sData['Inverter'] ? sData['Inverter']['VAC_out'] : '' | number: '1.2-3'}}</a> VAC <br>
+        Batt_V: <a class="value">{{sData['Inverter'] ? sData['Inverter']['Batt_V'] : '' | number: '1.2-3'}}</a> Volts <br>
+      </div>
+    </div>
+  </div>
 </div>

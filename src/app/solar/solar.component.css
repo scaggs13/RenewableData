@@ -1,14 +1,26 @@
-div.svg_container {
+div.svg_container-p {
    display: inline-block;
+  font-family: Verdana, serif;
    width: 30%;
    padding: 1%;
   vertical-align: top;
   text-align: center;
  }
 
+div.svg_container-cc {
+  display: inline-block;
+  font-family: Verdana, serif;
+  width: 45%;
+  padding: 1%;
+  vertical-align: top;
+  text-align: center;
+}
+
+
 div.svg_panel {
   fill: #2A2A2A;
 }
+
 
 div.svg_container li {
   list-style-type: none;
@@ -17,10 +29,19 @@ div.svg_container li {
   background-color: #F0BF1E;
   font-weight: bold;
 }
-ul.svg_container {
+.data {
+  text-align: center;
+  color: #2A2A2A;
+  background-color: #F0BF1E;
+  font-weight: bold;
+  font-size: 2vw;
+}
+div.svg_container1 {
+  font-family: Verdana, serif;
   background-color: #F0BF1E;
   padding: 0 5%;
   text-align: center;
+  margin-bottom: 10px;
 }
 #cc {
 }
@@ -28,11 +49,11 @@ ul.svg_container {
 div.title-block {
   background-color: #161616;
   color: #F0BF1E;
+  font-family: Verdana, serif;
   font-size: xx-large;
   font-weight: bold;
   text-align: center;
   padding: 10px;
-  font-family: Verdana;
 }
 div#1.svg_container {
 }
@@ -47,8 +68,10 @@ div#5.svg_container {
 }
 
 a.cc {
-  position: relative;
-  color: white;
+  display: block;
+  color: #2A2A2A;
+  font-weight: bold;
+  font-family: Verdana, serif;
 }
 
 #fill {
@@ -58,4 +81,95 @@ a.cc {
 #battery {
   padding: 3%;
   width: 94%;
+}
+
+.battery-container {
+  position: relative;
+  background-color: #F0BF1E;
+}
+
+.battery-text {
+  position: absolute;
+  font-family: Verdana, serif;
+  font-size: 10vw;
+  font-weight: bold;
+  color: #2A2A2A;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hide-button {
+  cursor: pointer;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: #2A2A2A;
+}
+
+.hide-button:hover {
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: #202020;
+  background-color: darkgoldenrod;
+}
+
+.hideable-data .battery-data {
+  display: none;
+}
+
+.hideable-data {
+  background-color: #F0BF1E;
+  color: #2A2A2A;
+  text-align: center;
+  overflow: auto;
+  font-family: Verdana, serif;
+  font-weight: bold;
+  font-size: 2vw;
+  margin-bottom: 10px;
+}
+
+.hideable-data .show {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+.data-column {
+  display: inline-block;
+  font-family: Verdana, serif;
+  font-weight: bold;
+  font-size: 2vw;
+  color: #2A2A2A;
+  width: 50%;
+}
+
+.value {
+  font-size: xx-large;
+}
+
+div.inverter {
+  font-family: Verdana, serif;
+  width: 100%;
+  padding: 1%;
+  vertical-align: top;
+  text-align: center;
+  align-items: center;
+  background-color: #F0BF1E;
+}
+
+.inner-container {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+}
+
+.svg_inv {
+  width: 100%;
+}
+
+.sub-title {
+  font-family: Verdana, serif;
+  font-weight: bold;
+  font-size: xx-large;
+  color: #2A2A2A;
 }

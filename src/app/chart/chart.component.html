@@ -21,16 +21,18 @@
         x max:
         <input type="date" [ngModel]="myChartLabels[1]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setEndX($event)" placeholder="End Date">
       </label>
-      <label>
-        Begin at zero:
-        <input type="checkbox" [(ngModel)]="myChartOptions.scales.yAxes[0].ticks.beginAtZero" (ngModelChange)="resetChartData()"> {{myChartOptions.scales.yAxes[0].ticks.beginAtZero}}
-      </label>
+<!--     <label>   This is not currently working-->
+<!--        Begin at zero:-->
+<!--        <input type="checkbox" [(ngModel)]="myChartOptions.scales.yAxes[0].ticks.beginAtZero" (ngModelChange)="resetChartData()"> {{myChartOptions.scales.yAxes[0].ticks.beginAtZero}}-->
+<!--      </label> -&ndash;&gt;-->
     </div>
     <div *ngFor="let plot of myDataTypes" class="plot-settings">
       <label>
       y axis:
-        <select  *ngIf="sortedData[plot.name]" [(ngModel)]="plot.y" (ngModelChange)="changeYAxis(plot, $event)">
-          <option *ngFor="let s of sortedData[plot.name].y_values">{{s}}</option>
+        <select  *ngIf="sortedData[plot.name]" [ngModel]="(plot.name === 'Solar' ? (plot.y_ref === 'ChargeControllerM' ? 'ChargeM' :
+            (plot.y_ref === 'ChargeControllerP' ? 'ChargeP' : plot.y_ref))
+              + ': ' + plot.y : plot.y)" (ngModelChange)="changeYAxis(plot, $event)">
+          <option *ngFor="let s of sortedData[plot.name].y_values" >{{s}}</option>
         </select>
       </label>
       <label>

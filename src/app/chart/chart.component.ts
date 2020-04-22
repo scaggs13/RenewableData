@@ -96,6 +96,10 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeTag(s: string) {
+    return s.substring(s.indexOf(' ') + 1);
+  }
+
   setScale(plot, value) {
     if (value) {
       // scale the plot
@@ -153,12 +157,31 @@ export class ChartComponent implements OnInit {
   }
 
   changeYAxis(plot, event) {
+    console.log(event.toString());
+    console.log(event);
     if (plot.name === 'Solar') {
       if (event.toString().includes('Poly')) {
         plot.y_ref = 'Poly';
+        plot.y = event.toString().replace(plot.y_ref + ': ', '');
       } else if (event.toString().includes('Mono')) {
         plot.y_ref = 'Mono';
+        plot.y = event.toString().replace(plot.y_ref + ': ', '');
+      } else if (event.toString().includes('Battery')) {
+        plot.y_ref = 'Battery';
+        plot.y = event.toString().replace(plot.y_ref + ': ', '');
+      } else if (event.toString().includes('Inverter')) {
+        plot.y_ref = 'Inverter';
+        plot.y = event.toString().replace(plot.y_ref + ': ', '');
+      } else if (event.toString().includes('ChargeM')) {
+        plot.y = event.toString().replace('ChargeM: ', '');
+        plot.y_ref = 'ChargeControllerM';
+      } else if (event.toString().includes('ChargeP')) {
+        plot.y = event.toString().replace('ChargeP: ', '');
+        plot.y_ref = 'ChargeControllerP';
       }
+
+    } else {
+      plot.y = event.toString();
     }
     this.resetChartData();
   }
@@ -209,7 +232,6 @@ export class ChartComponent implements OnInit {
         this.sortedData[item.name].data = data;
         // Add available y values
         this.addYs(data[0], item.name);
-        console.log(this.sortedData);
         data = [];
     });
   }
@@ -219,27 +241,27 @@ export class ChartComponent implements OnInit {
     if (name === 'Solar') {
       // tslint:disable-next-line:forin
       for (const keys in data.Poly.S) {
-        values.push(keys.toString());
+        values.push('Poly: ' + keys.toString());
       }
       // tslint:disable-next-line:forin
       for (const keys in data.Mono.S) {
-        values.push(keys.toString());
+        values.push('Mono: ' + keys.toString());
       }
       // tslint:disable-next-line:forin
       for (const keys in data.Battery.S) {
-        values.push(keys.toString());
+        values.push('Battery: ' + keys.toString());
       }
       // tslint:disable-next-line:forin
       for (const keys in data.ChargeControllerM.S) {
-        values.push(keys.toString());
+        values.push('ChargeM: ' + keys.toString());
       }
       // tslint:disable-next-line:forin
       for (const keys in data.ChargeControllerP.S) {
-        values.push(keys.toString());
+        values.push('ChargeP: ' + keys.toString());
       }
       // tslint:disable-next-line:forin
       for (const keys in data.Inverter.S) {
-        values.push(keys.toString());
+        values.push('Inverter: ' + keys.toString());
       }
     } else {
       for (const keys in data) {

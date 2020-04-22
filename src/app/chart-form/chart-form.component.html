@@ -34,19 +34,19 @@
       </div>
     </div>
     <div class="submit-group">
-      <div *ngIf="chartForm.form.valid" class="chart-settings">Add a {{chartForm.form.controls.type.value}} chart using
-        {{(chartForm.form.controls.Weather.value)? 'Weather': ''}}
-        {{(chartForm.form.controls.Weather.value && chartForm.form.controls.Wind.value
+      <div *ngIf="chartForm.form.valid" class="chart-settings">Add a {{chartForm.form.controls.type ? chartForm.form.controls.type.value : ''}} chart using
+        {{chartForm.form.controls.Weather ? (chartForm.form.controls.Weather.value)? 'Weather': '' : ''}}
+        {{chartForm.form.controls.Weather ? (chartForm.form.controls.Weather.value && chartForm.form.controls.Wind.value
           && chartForm.form.controls.Solar.value)? ', ':
           ((chartForm.form.controls.Weather.value && chartForm.form.controls.Wind.value) ||
-            (chartForm.form.controls.Weather.value && chartForm.form.controls.Solar.value))? ' and ': ''}}
-        {{(chartForm.form.controls.Wind.value)? 'Wind': ''}}
-        {{(chartForm.form.controls.Wind.value
-        && chartForm.form.controls.Solar.value)? ' and ': ''}}
-        {{(chartForm.form.controls.Solar.value)? 'Solar': ''}}
+            (chartForm.form.controls.Weather.value && chartForm.form.controls.Solar.value))? ' and ': '' : ''}}
+        {{chartForm.form.controls.Wind ? (chartForm.form.controls.Wind.value)? 'Wind': '' : ''}}
+        {{chartForm.form.controls.Wind ? (chartForm.form.controls.Wind.value
+        && chartForm.form.controls.Solar.value)? ' and ': '' : ''}}
+        {{chartForm.form.controls.Solar ? (chartForm.form.controls.Solar.value)? 'Solar': '' : ''}}
         data with a date
-        ranging from {{chartForm.form.controls.start.value}}
-         to {{chartForm.form.controls.end.value}} <br>
+        ranging from {{chartForm.form.controls.start ? chartForm.form.controls.start.value : ''}}
+         to {{chartForm.form.controls.end ? chartForm.form.controls.end.value : ''}} <br>
       </div>
       <button type="submit" class="btn btn-success btn-submit" [disabled]="!(chartForm.form.valid
       && (chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value

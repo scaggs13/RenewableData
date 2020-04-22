@@ -11,6 +11,8 @@ import {SPVARIABLES, SMVARIABLES} from '../dataVariables';
 export class SolarComponent implements OnInit {
   svg = './assets/images/solar-panel.svg';
   svgCc = './assets/images/CC.svg';
+  svgInv = './assets/images/inverter.svg';
+
   destroyed$ = new Subject();
   variablesP = SPVARIABLES;
   variablesM = SMVARIABLES;
@@ -19,12 +21,18 @@ export class SolarComponent implements OnInit {
 
   ngOnInit() {
     this.solarService.getLatestSolar();
-    this.solarService.solarData.subscribe(data => this.sData = data);
+    this.solarService.solarData.subscribe((data) => {
+      this.sData = data;
+      // @ts-ignore
+      this.setBattery(data.Battery.SOC);
+    });
     this.setBattery(50);
   }
   setBattery(batteryP: number) {
-    document.getElementById('fill').style.transform = 'scaleX(' + batteryP / 100 + ')';
-    document.getElementById('fill').style.fill = this.perc2color(batteryP).toString();
+    if (document.getElementById('fill')) {
+      document.getElementById('fill').style.transform = 'scaleX(' + batteryP / 100 + ')';
+      document.getElementById('fill').style.fill = this.perc2color(batteryP).toString();
+    }
   }
 
   perc2color(perc: number) { // Converts a number (0-100) to a color value.
@@ -45,6 +53,10 @@ export class SolarComponent implements OnInit {
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnDestroy() {
     this.destroyed$.next();
+  }
+
+  hideBatteryData(event) {
+    event.target.parentElement.getElementsByClassName('battery-data')[0].classList.toggle('show');
   }
 
 }
