@@ -18,7 +18,7 @@ import { ChartComponent } from '../chart/chart.component';
 export class DataComponent implements OnInit {
   @ViewChild('chartContainer', {static: false, read: ViewContainerRef }) container;
   private componentRef: ComponentRef<ChartComponent>;
-  private components = [];
+  components = [];
   constructor(private histService: HistoricalDataService, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {}
