@@ -8,20 +8,23 @@
     <div class="box">
       <div class="title-block"><u><b>3 phase output wires <br></b> </u></div>
       <div class="three-phase">
-        <div class="phase"> 1 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
-        <div class="phase"> 2 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
-        <div class="phase"> 3 <br> Voltage: (voltage) Volts <br> Current: (current) Amps</div>
+        <div class="phase"> 1 <br> Voltage: {{(wData['P31_V'] ? wData['P31_V'] : '') | number: '1.2-3'}} Volts
+          <br>Current: {{(wData['P31_I'] ? wData['P31_I'] : '') | number: '1.2-3'}} Amps</div>
+        <div class="phase"> 2 <br> Voltage: {{(wData['P32_V'] ? wData['P32_V'] : '') | number: '1.2-3'}} Volts
+          <br> Current: {{(wData['P32_I'] ? wData['P32_I'] : '') | number: '1.2-3'}} Amps</div>
+        <div class="phase"> 3 <br> Voltage: {{(wData['P33_V'] ? wData['P33_V'] : '') | number: '1.2-3'}} Volts
+          <br> Current: {{(wData['P33_I'] ? wData['P33_I'] : '') | number: '1.2-3'}} Amps</div>
       </div>
     </div>
     <div class="box">
       <div class="title-block"><u><b>Battery<br></b></u></div>
-      Voltage: (voltage) Volts <br>
-      Current: (current) Amps <br>
+      Voltage: {{(wData['Batt_V'] ? wData['Batt_V'] : '') | number: '1.2-3'}} Volts <br>
+      Current: {{(wData['Batt_I'] ? wData['Batt_I'] : '') | number: '1.2-3'}} Amps <br>
     </div>
     <div class="box">
       <div class="title-block"><u><b>Load<br></b></u></div>
-      Voltage: (voltage) Volts <br>
-      Current: (current) Volts <br>
+      Voltage: {{(wData['Load_V'] ? wData['Load_V'] : '') | number: '1.2-3'}} Volts <br>
+      Current: {{(wData['Load_I'] ? wData['Load_I'] : '') | number: '1.2-3'}} Volts <br>
 
     </div>
   </div>

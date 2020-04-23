@@ -149,16 +149,15 @@ export class ChartComponent implements OnInit {
     this.myChartType = chartInfo.type;
     this.myDataTypes = chartInfo.dataTypes;
     this.rawData = chartInfo.rawData;
-    // console.log(this.rawData['0']);
+    // console.log(this.rawData);
     this.myChartLabels = [chartInfo.start, chartInfo.end];
     this.sortData();
+    // console.log(this.sortedData);
     this.resetChartData();
     // console.log(this.myChartData);
   }
 
   changeYAxis(plot, event) {
-    console.log(event.toString());
-    console.log(event);
     if (plot.name === 'Solar') {
       if (event.toString().includes('Poly')) {
         plot.y_ref = 'Poly';
@@ -213,7 +212,7 @@ export class ChartComponent implements OnInit {
           // Get day of first timestamp.
           const range = [new Date(this.myChartLabels[0] * 1000).setHours(0, 0, 0, 0)
           , new Date(this.myChartLabels[1] * 1000).setHours(0, 0, 0, 0)];
-          console.log(range);
+
           // loop through each day
           for (const d = new Date(range[0]); d <= new Date(range[1]); d.setDate(d.getDate() + 1)) {
            //  daysOfYear.push(new Date(d));
@@ -282,7 +281,7 @@ export class ChartComponent implements OnInit {
         this.myDataTypes.push({name: 'Weather', x: 'Timestamp', y: 'air_temperature', scale: 1});
         break;
       case 'Wind' :
-        this.myDataTypes.push({name: 'Wind', x: 'Timestamp', y: '', scale: 1});
+        this.myDataTypes.push({name: 'Wind', x: 'Timestamp', y: 'P31_V', scale: 1});
         break;
       default:
     }

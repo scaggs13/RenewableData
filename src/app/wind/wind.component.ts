@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WindService } from '../wind.service';
+import {SolarService} from '../solar.service';
 
 @Component({
   selector: 'app-wind',
@@ -6,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wind.component.css']
 })
 export class WindComponent implements OnInit {
-  message = {};
+
   svgTurbine = './assets/images/TurbineTop.svg';
   svgTower = './assets/images/Tower.svg';
-  constructor() { }
+  constructor(private windService: WindService) { }
 
-  getMessage() {
-  }
+  wData = {};
+
   ngOnInit() {
-    this.getMessage();
+    this.windService.getLatestWind();
+    this.windService.windData.subscribe((data) => {
+      this.wData = data;
+    });
   }
 
 }

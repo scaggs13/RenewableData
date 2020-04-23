@@ -35,7 +35,7 @@ export class DataComponent implements OnInit {
       temp.dataTypes.push({name: 'Weather', x: 'Timestamp', y: 'air_temperature', scale: 1});
     }
     if (formValues.wind) {
-      temp.dataTypes.push({name: 'Wind', x: 'Timestamp', y: '', scale: 1});
+      temp.dataTypes.push({name: 'Wind', x: 'Timestamp', y: 'P31_V', scale: 1});
     }
     if (formValues.solar) {
       temp.dataTypes.push({name: 'Solar', x: 'Timestamp', y: 'PolyP1v', y_ref: 'Poly', scale: 1});
