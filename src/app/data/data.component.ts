@@ -24,30 +24,35 @@ export class DataComponent implements OnInit {
   ngOnInit() {}
 
   addChart(formValues) {
-    const factory: ComponentFactory<ChartComponent> = this.resolver.resolveComponentFactory(ChartComponent);
-    this.componentRef = this.container.createComponent(factory);
-    this.components.push(this.componentRef);
-    const temp = {
-      type: formValues.chartType, start: formValues.start, end: formValues.end
-      , dataTypes: [], rawData: []}
-    ;
-    if (formValues.weather) {
-      temp.dataTypes.push({name: 'Weather', x: 'Timestamp', y: 'air_temperature', scale: 1});
-    }
-    if (formValues.wind) {
-      temp.dataTypes.push({name: 'Wind', x: 'Timestamp', y: 'P31_V', scale: 1});
-    }
-    if (formValues.solar) {
-      temp.dataTypes.push({name: 'Solar', x: 'Timestamp', y: 'PolyP1v', y_ref: 'Poly', scale: 1});
-    }
-    this.histService.getData(formValues, (data) => {
-      const total = [];
-      data.forEach((value) => {
-        total.push(...value.Items);
+    try {
+      const factory: ComponentFactory<ChartComponent> = this.resolver.resolveComponentFactory(ChartComponent);
+      this.componentRef = this.container.createComponent(factory);
+      this.components.push(this.componentRef);
+      const temp = {
+          type: formValues.chartType, start: formValues.start, end: formValues.end
+          , dataTypes: [], rawData: []
+        }
+      ;
+      if (formValues.weather) {
+        temp.dataTypes.push({name: 'Weather', x: 'Timestamp', y: 'air_temperature', scale: 1});
+      }
+      if (formValues.wind) {
+        temp.dataTypes.push({name: 'Wind', x: 'Timestamp', y: 'P31_V', scale: 1});
+      }
+      if (formValues.solar) {
+        temp.dataTypes.push({name: 'Solar', x: 'Timestamp', y: 'PolyP1v', y_ref: 'Poly', scale: 1});
+      }
+      this.histService.getData(formValues, (data) => {
+        const total = [];
+        data.forEach((value) => {
+          total.push(...value.Items);
+        });
+        temp.rawData = total;
+        this.componentRef.instance.setChart(temp);
       });
-      temp.rawData = total;
-      this.componentRef.instance.setChart(temp);
-    });
+    } catch (e) {
+      console.log('Unable to plot, please retry.');
+    }
 
   }
 

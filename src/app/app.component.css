@@ -80,5 +80,31 @@ h1 {
 }
 
 .bottom-bar {
-  min-height: 50px;
+  min-height: 100px;
+  position: relative;
+  border-top-style: solid;
+  border-top-color: #F0BF1E;
+  border-top-width: thick;
+  margin-top: 5px;
+  background-color: #2A2A2A;
+  color: #F0BF1E;
+}
+
+.copywrite {
+  position: absolute;
+  bottom: 0;
+  font-family: Verdana, sans-serif;
+  font-size: x-small;
+}
+
+.issues {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+.issues:hover {
+  background-color: darkgoldenrod;
+  border-radius: 2px;
 }

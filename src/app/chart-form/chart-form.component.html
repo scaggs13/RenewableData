@@ -48,7 +48,7 @@
         ranging from {{chartForm.form.controls.start ? chartForm.form.controls.start.value : ''}}
          to {{chartForm.form.controls.end ? chartForm.form.controls.end.value : ''}} <br>
       </div>
-      <button type="submit" class="btn btn-success btn-submit" [disabled]="!(chartForm.form.valid
+      <button *ngIf="chartForm.form.controls.Wind" type="submit" class="btn btn-success btn-submit" [disabled]="!(chartForm.form.valid
       && (chartForm.form.controls.Weather.value || chartForm.form.controls.Wind.value
       || chartForm.form.controls.Solar.value) && (chartForm.form.controls.start.value < chartForm.form.controls.end.value))">
         Submit</button>

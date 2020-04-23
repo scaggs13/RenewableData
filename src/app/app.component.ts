@@ -8,4 +8,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'C of O Engineering Alternate Energy';
   constructor() {}
+
+  getYear() {
+    const date = new Date();
+    return date.getFullYear();
+  }
 }
