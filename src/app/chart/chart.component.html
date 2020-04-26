@@ -12,7 +12,9 @@
 <div class="hideable-container">
   <div class="container-header" (click)="openChartSettings($event)">Chart Settings</div>
   <div class="hideable-content" id="hideable-content">
-    <div class="overall-settings">Overall Adjustments:
+    <div class="overall-settings">
+      <div class="delete-chart" (click)="deleteChart()">Delete Chart</div>
+      Overall Adjustments:
       <label>
         x min:
         <input type="date" [ngModel]="myChartLabels[0]*1000 | date:'yyyy-MM-dd'" (ngModelChange)="setStartX($event)" placeholder="Start Date">
@@ -40,6 +42,9 @@
         <input type="checkbox" [ngModel]="(plot.scale!=1)" (ngModelChange)="setScale(plot, $event)">
       </label>
       Scale Factor: {{plot.scale | number: '1.2-3'}}
+      <div class="delete-plot" (click)="deletePlot(plot)">X
+      <span class="tooltiptext">Delete Plot</span>
+      </div>
     </div>
     <div class="popup-opener" (click)="openPopUp($event)">Add Plot
       <div class="popup" id="myPopup">

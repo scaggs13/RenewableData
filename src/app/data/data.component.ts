@@ -19,6 +19,7 @@ export class DataComponent implements OnInit {
   @ViewChild('chartContainer', {static: false, read: ViewContainerRef }) container;
   private componentRef: ComponentRef<ChartComponent>;
   components = [];
+  index = 0;
   constructor(private histService: HistoricalDataService, private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {}
@@ -27,6 +28,8 @@ export class DataComponent implements OnInit {
     try {
       const factory: ComponentFactory<ChartComponent> = this.resolver.resolveComponentFactory(ChartComponent);
       this.componentRef = this.container.createComponent(factory);
+      this.componentRef.instance.parentData = this;
+      this.componentRef.instance.index = this.index++;
       this.components.push(this.componentRef);
       const temp = {
           type: formValues.chartType, start: formValues.start, end: formValues.end
@@ -42,18 +45,38 @@ export class DataComponent implements OnInit {
       if (formValues.solar) {
         temp.dataTypes.push({name: 'Solar', x: 'Timestamp', y: 'PolyP1v', y_ref: 'Poly', scale: 1});
       }
-      this.histService.getData(formValues, (data) => {
-        const total = [];
-        data.forEach((value) => {
-          total.push(...value.Items);
-        });
-        temp.rawData = total;
-        this.componentRef.instance.setChart(temp);
+      this.histService.getData(formValues, (data, err) => {
+        if (err) {
+          this.removeChart( this.componentRef.instance.index);
+          console.log(err);
+        } else {
+          const total = [];
+          data.forEach((value) => {
+            total.push(...value.Items);
+          });
+          temp.rawData = total;
+          this.componentRef.instance.setChart(temp);
+        }
       });
     } catch (e) {
       console.log('Unable to plot, please retry.');
     }
 
+  }
+
+  removeChart(index) {
+    if (this.container.length < 1) {
+      return;
+    }
+
+    const componentRef = this.components.find(x => x.instance.index === index);
+    // const component: ChartComponent = componentRef.instance as ChartComponent;
+
+    const containerIndex: number = this.container.indexOf(componentRef);
+
+    // removing component from container
+    this.container.remove(containerIndex);
+    this.components.splice(this.components.indexOf(componentRef), 1);
   }
 
   exportData() {

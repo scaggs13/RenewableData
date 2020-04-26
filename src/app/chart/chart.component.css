@@ -103,3 +103,56 @@
   border-bottom-style: dashed;
   border-color: #202020;
 }
+
+.delete-plot {
+  float: right;
+  color: red;
+  font-family: Verdana, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.delete-plot .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #2A2A2A;
+  color: #fff;
+  font-family: Verdana, sans-serif;
+  font-size: x-small;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  transform: translate(-100px, -15px);
+  opacity: 50%;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.delete-plot:hover .tooltiptext {
+  visibility: visible;
+}
+
+.delete-plot:hover {
+  background-color: #2A2A2A;
+  color: darkred;
+}
+
+.delete-chart {
+  font-family: Verdana, sans-serif;
+  font-size: small;
+  float: left;
+  color: red;
+  background-color: #2A2A2A;
+  border-radius: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.delete-chart:hover {
+  color: darkred;
+  background-color: #202020;
+}

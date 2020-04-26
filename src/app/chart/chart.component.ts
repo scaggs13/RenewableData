@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataComponent} from '../data/data.component';
 
 @Component({
   selector: 'app-chart',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
+
+  public parentData: DataComponent;
+  public index;
 
   public myDataTypes = [];
   private yAxisTicks = [];
@@ -350,6 +354,15 @@ export class ChartComponent implements OnInit {
     //   // }
     // }
     return this.sortedData;
+  }
+
+  deletePlot(plot) {
+    this.myDataTypes.splice(this.myDataTypes.indexOf(plot), 1);
+    this.resetChartData();
+  }
+
+  deleteChart() {
+    this.parentData.removeChart(this.index);
   }
 
 }

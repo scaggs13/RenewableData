@@ -21,8 +21,8 @@ private dataAvailable = false;
   }
 
   getData(msg, fn) {
-    this.socket.emit('hist_data', msg, (data) => {
-      fn(data);
+    this.socket.emit('hist_data', msg, (data, err) => {
+      fn(data, err);
     });
   }
 }
