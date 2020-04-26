@@ -46,7 +46,8 @@ export class ChartComponent implements OnInit {
         ticks: {
           callback(value) {
             const date = new Date(value * 1000);
-            return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+            return (date.getMonth() + 1) + '/' + date.getDate() + '/'
+              + date.getFullYear() + '\n' + date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
           },
         }
       }]

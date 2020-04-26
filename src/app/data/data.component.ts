@@ -65,52 +65,24 @@ export class DataComponent implements OnInit {
       allData.push(this.components[chart].instance.getSortedData());
       n = n + 1;
     }
-    this.convertJSON(allData[0].Solar.data);
+    const convertedData = this.convertToArray(allData);
     // Export data to CSV
-    this.exportCSV(this.obj2csv(allData, null));
+    this.exportCSV(this.obj2csv(convertedData, null));
 
   }
 
-  convertJSON(arrayOfJSONs) {
-    const newJSON = {};
-    // tslint:disable-next-line:forin
-    for (const dataSet in arrayOfJSONs) {
-      const subKeys = [];
-      this.getSubValue(arrayOfJSONs[dataSet], subKeys);
-      console.log(subKeys);
-      subKeys.forEach((value) => {
-        newJSON[value[0]][value[1]][value[2][0]].push(arrayOfJSONs[dataSet][value[0]][value[1]][value[2][0]]);
-      });
-    }
-  }
-
-  getSubValue(object, subKeys) {
-    // tslint:disable-next-line:forin
-    for (const key in object) {
-      const tmpValue = object[key];
-      if (typeof tmpValue === 'object') {
-        const nextKeys = [];
-        nextKeys.push(key);
-        this.getRecursiveSubValue(tmpValue, nextKeys);
-        subKeys.push(nextKeys);
-      } else {
-        subKeys.push(key);
+  convertToArray(arrayOfJSONs) {
+    let dataArray = [];
+    arrayOfJSONs.forEach((sortedData) => {
+      for (const dataType in sortedData) {
+        if  (dataArray.length > 0) {
+          dataArray = dataArray.concat(sortedData[dataType].data);
+        } else {
+          dataArray = sortedData[dataType].data;
+        }
       }
-    }
-  }
-
-  getRecursiveSubValue(object, subKeys) {
-    const newKeys = [];
-    // tslint:disable-next-line:forin
-    for (const key in object) {
-      const tmpValue = object[key];
-      subKeys.push(key);
-      if (typeof tmpValue === 'object') {
-        this.getRecursiveSubValue(tmpValue, newKeys);
-        subKeys.push(newKeys);
-      } else {
-      }
-    }
+    });
+    return dataArray;
   }
 
   obj2csv(obj, opt) {
@@ -123,7 +95,6 @@ export class DataComponent implements OnInit {
     let curs, name, rownum, key, queue;
     // tslint:disable-next-line:one-variable-per-declaration
     const values = [], rows = [], headers = {}, headersArr = [];
-    console.log(obj.length);
     for (rownum = 0; rownum < obj.length; rownum++) {
       queue = [obj[rownum], ''];
       rows[rownum] = {};
@@ -158,7 +129,6 @@ export class DataComponent implements OnInit {
     for (rownum = 0; rownum < obj.length; rownum++) {
       values[rownum] = values[rownum].join(delimeter);
     }
-    console.log(values);
     return '"' + headersArr.join('"' + delimeter + '"') + '"\n' + values.join('\n');
   }
 
