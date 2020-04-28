@@ -2,11 +2,11 @@
 <div>
 
   <ul>
-    <li><a routerLink="/home" routerLinkActive="selected">Home</a></li>
-    <li><a routerLink="/solar" routerLinkActive="selected">Solar</a></li>
-    <li><a routerLink="/wind" routerLinkActive="selected">Wind</a></li>
-    <li><a routerLink="/data" routerLinkActive="selected">Data</a></li>
-    <li><a routerLink="/weather" routerLinkActive="selected">Weather</a></li>
+    <li><a routerLink="/home" routerLinkActive="selected" (click)="scroll()">Home</a></li>
+    <li><a routerLink="/solar" routerLinkActive="selected" (click)="scroll()">Solar</a></li>
+    <li><a routerLink="/wind" routerLinkActive="selected" (click)="scroll()">Wind</a></li>
+    <li><a routerLink="/data" routerLinkActive="selected" (click)="scroll()">Data</a></li>
+    <li><a routerLink="/weather" routerLinkActive="selected" (click)="scroll()">Weather</a></li>
   </ul>
   <div class="title-bar">
     <img src="../assets/images/wind-solar.jpg" alt="">
@@ -14,10 +14,10 @@
   </div>
 </div>
 <app-error-messages></app-error-messages>
-<router-outlet></router-outlet>
+<router-outlet id="content"></router-outlet>
 <div class="bottom-bar">
 
-  <div class="issues">Report Issue</div>
+  <div class="issues" routerLink="/contact" routerLinkActive="selected">Report Issue</div>
 
   <div class="copywrite">Copyright {{getYear()}} College of the Ozarks Engineering</div>
 

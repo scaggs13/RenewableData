@@ -16,15 +16,15 @@
   color: #F0BF1E;
   background-color: #2A2A2A;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 5px;
 }
 
 .data-container {
   font-family: Verdana, serif;
   background-color: #F0BF1E;
-  color: #111111;
-  padding-bottom: 10px;
+  color: #2A2A2A;
+  padding-bottom: 5px;
 }
 
 .last-time {
@@ -34,8 +34,8 @@
 .data-box {
   color: #2A2A2A;
   background-color: #F0BF1E;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-top: 3px;
   align-items: center;
   text-align: center;
 }
@@ -45,8 +45,8 @@
   flex-flow: row;
   align-items: center;
   justify-content: center;
-  color: #F0BF1E;
-  background-color: #2A2A2A;
+  color: #2A2A2A;
+  background-color: #F0BF1E;
   width: 90%;
   border-radius: 5px;
   padding: 2%;

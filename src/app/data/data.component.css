@@ -11,3 +11,8 @@
 #export:disabled {
   visibility: hidden;
 }
+
+.placeholder {
+  font-family: Verdana, sans-serif;
+  color: #F0BF1E;
+}

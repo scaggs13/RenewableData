@@ -1,0 +1,12 @@
+.form {
+  display: block;
+  text-align: center;
+  background-color: #F0BF1E;
+  color: #2A2A2A;
+  padding: 40px;
+}
+
+.textarea {
+  min-height: 100px;
+  min-width: 80%;
+}

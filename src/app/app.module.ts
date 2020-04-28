@@ -16,6 +16,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ErrorMessagesComponent } from './error-messages/error-messages.component';
 import { ChartComponent } from './chart/chart.component';
 import { ChartFormComponent } from './chart-form/chart-form.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 // const config: SocketIoConfig = { url: 'localhost:3000', options: {} };
@@ -31,7 +32,8 @@ const config: SocketIoConfig = { url: 'http://50.17.173.72:3000', options: {} };
     WeatherComponent,
     ErrorMessagesComponent,
     ChartComponent,
-    ChartFormComponent
+    ChartFormComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

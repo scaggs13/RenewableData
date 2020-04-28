@@ -1,0 +1,5 @@
+<form #reportForm="ngForm" (ngSubmit)="onSubmit()" class="form">
+  <label for="issue-content">Please describe the issue </label> <br>
+  <textarea class="textarea" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" id="issue-content"></textarea> <br>
+  <button type="submit">Submit</button>
+</form>

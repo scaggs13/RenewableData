@@ -4,4 +4,5 @@
   <div class="title-block" [hidden]="components.length == 0">Charts</div>
   <template #chartContainer id="chart-container"> </template>
 </div>
+<div *ngIf="components.length == 0" class="placeholder">Add a chart to export data.</div>
 <input type="button" id="export" [disabled]="components.length == 0" (click)="exportData()" name="Export" value="Export Data">

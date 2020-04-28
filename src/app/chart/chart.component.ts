@@ -64,7 +64,7 @@ export class ChartComponent implements OnInit {
   public sortedData = {};
 
   public myChartData = [
-     {data: [{x: 0, y: 1}, {x: 1, y: 3}, {x: 2, y: 2}, {x: 3, y: 5}, {x: 4, y: 0}, {x: 5, y: 2}], label: 'Series A', showLine: true}
+     {data: [{x: 0, y: 0}], label: 'No Data Available', showLine: false}
   ];
   public rawData;
 

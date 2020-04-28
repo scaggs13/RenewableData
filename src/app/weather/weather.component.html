@@ -5,7 +5,7 @@
   <div class="data-box" id="temp">
     <div class="sub-box">
       <div class="data">
-        Temperature: <a>{{wData["air_temperature"]}} &#176;C</a><br>
+        Temperature:<br> <a>{{wData["air_temperature"]}} &#176;C</a><br>
       </div>
       <div class="data">
         Feels Like: <a>{{wData["feels_like"]}} &#176;C</a><br>
@@ -13,9 +13,9 @@
         Wind Chill: <a>{{wData["wind_chill"]}} &#176;C</a><br>
       </div>
       <div class="data">
-        Dew Point: <a>{{wData["dew_point"]}} &#176;C</a><br>
-        Wet Bulb Temperature: <a>{{wData["wet_bulb_temperature"]}} &#176;C</a><br>
-        Change in Temperature: <a>{{wData["delta_t"]}} &#176;C</a><br>
+        Dew Point: <br><a>{{wData["dew_point"]}} &#176;C</a><br>
+        Wet Bulb Temperature: <br><a>{{wData["wet_bulb_temperature"]}} &#176;C</a><br>
+        Change in Temperature: <br><a>{{wData["delta_t"]}} &#176;C</a><br>
       </div>
     </div>
   </div>
@@ -85,14 +85,14 @@
     <div class="sub-box">
       <div class="data">
         Last Lightning Strike <br>
-        Time: <a>{{wData["lightning_strike_last_epoch"]*1000 | date: 'short'}}</a><br>
+        Time: <br><a>{{wData["lightning_strike_last_epoch"]*1000 | date: 'short'}}</a><br>
         Distance: <a>{{wData["lightning_strike_last_distance"]}} km</a><br>
       </div>
       <div class="data">
-        Lighting Strike Count: <a>{{wData["lightning_strike_count"]}} strikes</a><br>
+        Lighting Strike Count: <br><a>{{wData["lightning_strike_count"]}} strikes</a><br>
       </div>
       <div class="data">
-        Count (past 3 hours): <a>{{wData["lightning_strike_count_last_3hr"]}} strikes</a><br>
+        Count (past 3 hours): <br><a>{{wData["lightning_strike_count_last_3hr"]}} strikes</a><br>
       </div>
     </div>
   </div>

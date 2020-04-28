@@ -54,8 +54,13 @@ export class DataComponent implements OnInit {
           data.forEach((value) => {
             total.push(...value.Items);
           });
-          temp.rawData = total;
-          this.componentRef.instance.setChart(temp);
+          if (total.length > 0) {
+            temp.rawData = total;
+            this.componentRef.instance.setChart(temp);
+          } else {
+            this.removeChart(this.componentRef.instance.index);
+            console.log('No Data found for that date range');
+          }
         }
       });
     } catch (e) {

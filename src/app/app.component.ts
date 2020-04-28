@@ -13,4 +13,9 @@ export class AppComponent {
     const date = new Date();
     return date.getFullYear();
   }
+
+  scroll() {
+    const element = document.getElementById('content');
+    element.scrollIntoView();
+  }
 }
